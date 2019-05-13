@@ -1,0 +1,110 @@
+[
+  {
+    "id": "6fb5cd1f-b304-44f8-96a1-e02d4815eafa",
+    "data": [
+      {
+        "text": "хочешь есть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7873d7ed-73b0-4d27-9286-0c1b52e7dc75",
+    "data": [
+      {
+        "text": "ты голодная",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8a9bd380-f8b2-4c6f-9de3-a56ef484d963",
+    "data": [
+      {
+        "text": "хочешь что-нибудь поесть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f4ef32e1-c455-496e-8a57-44f987f7ea12",
+    "data": [
+      {
+        "text": "ты голодна",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cfee9742-a96c-4bc7-8222-0cfce0b61754",
+    "data": [
+      {
+        "text": "ты проголодалась",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fa45d847-5553-4ed9-ba4c-4766836c1134",
+    "data": [
+      {
+        "text": "ты так проголодалась",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "da4cdfec-569a-4a1b-981a-37ce462055ac",
+    "data": [
+      {
+        "text": "ты очень голоден",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "585667f4-4033-41ae-8e91-5c6104cf73a5",
+    "data": [
+      {
+        "text": "возможно ты проголодался",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "19bf8ff6-86dd-45cd-a044-7d35358e69a2",
+    "data": [
+      {
+        "text": "ты голоден не так ли",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

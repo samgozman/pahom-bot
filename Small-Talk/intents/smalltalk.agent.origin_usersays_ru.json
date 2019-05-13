@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fb6e7de9-2108-421a-bd04-6bacac08ff20",
+    "data": [
+      {
+        "text": "откуда ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a6cf35cf-3723-4293-8bde-51009b456b4a",
+    "data": [
+      {
+        "text": "расскажи из какой ты страны",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "da8445b1-bf43-4f20-853f-53bffeab129e",
+    "data": [
+      {
+        "text": "откуда ты родом",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "13917f3d-3fa6-46c6-886e-6ed08f0b2b1c",
+    "data": [
+      {
+        "text": "где ты родился",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7c028d8b-5da0-4884-bda1-646625cdd645",
+    "data": [
+      {
+        "text": "где ты родилась",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "96f4e775-a17f-4ac1-bba4-a2d98cb1d793",
+    "data": [
+      {
+        "text": "скажи откуда ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e862e232-e552-4e79-9b81-4cc7afd3fd29",
+    "data": [
+      {
+        "text": "ты издалека",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "dede7249-36fd-4b06-9137-07484760aefc",
+    "data": [
+      {
+        "text": "твоя родная земля где она",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e6812c47-aab3-4731-bdff-892b6e70849c",
+    "data": [
+      {
+        "text": "где твоя Родина",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

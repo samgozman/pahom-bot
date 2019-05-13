@@ -1,0 +1,104 @@
+[
+  {
+    "id": "cd8a94d5-9aab-4169-86ee-b6fbed5929c9",
+    "data": [
+      {
+        "text": "у меня ",
+        "userDefined": false
+      },
+      {
+        "text": "сегодня",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "день",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " рождения",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "29f09173-664b-466a-90c3-6d7bfab326d9",
+    "data": [
+      {
+        "text": "мой день рождения сегодня",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9e5fc455-9c72-48e7-b805-3901d292304d",
+    "data": [
+      {
+        "text": "сегодня я праздную свой день рождения",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f536210d-a275-4caf-96da-af4ea4e6a1bf",
+    "data": [
+      {
+        "text": "сегодня у меня день рождения",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c240870c-5ec1-4548-9646-f004cdbeef8f",
+    "data": [
+      {
+        "text": "в этот день я родился",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "67df22da-4cf3-4e3b-b36d-f4c77723898c",
+    "data": [
+      {
+        "text": "это мой день рождения",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "985bfa41-56f8-42a5-99ce-523b0b3227b8",
+    "data": [
+      {
+        "text": "праздную свой день рождения",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

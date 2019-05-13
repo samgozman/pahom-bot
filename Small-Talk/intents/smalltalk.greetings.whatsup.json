@@ -1,0 +1,34 @@
+{
+  "id": "2e20d6e7-0c3b-44b5-a7fb-5fd92bef1b0d",
+  "name": "smalltalk.greetings.whatsup",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "smalltalk.greetings.whatsup",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": [
+            "Всё хорошо. Как у тебя дела?",
+            "Всё хорошо! Как жизнь?",
+            "Радуюсь жизни в твоём девайсе. Как у тебя дела?",
+            "Всё хорошо, готовлюсь научиться какой-нибудь новой команде. А ты как?"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1529616684,
+  "fallbackIntent": false,
+  "events": []
+}

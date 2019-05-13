@@ -1,0 +1,163 @@
+[
+  {
+    "id": "9c4b021c-54ac-40fd-b69e-79e353ce4e96",
+    "data": [
+      {
+        "text": "доброе утро",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "07880dbc-37a2-4e4d-997a-09be2a88bbaa",
+    "data": [
+      {
+        "text": "с добрым утром",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8bfb1720-a91d-45b2-9424-8e0d963e3b4d",
+    "data": [
+      {
+        "text": "привет с добрым утром",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e630772e-1383-43cf-8cfe-6e5cf0e4e28a",
+    "data": [
+      {
+        "text": "хорошего утра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8bf8fdb9-cf52-4675-9331-0f58adad060b",
+    "data": [
+      {
+        "text": "прекрасного утра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e90e5282-22e4-49df-b013-df0b696bb0c6",
+    "data": [
+      {
+        "text": "с",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " добрым утром тебя",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2181114e-a63b-48ec-93be-57f99bd4e4e2",
+    "data": [
+      {
+        "text": "добрейшего утра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "508235c7-4b7b-4430-b5dd-ca1c7385e1dd",
+    "data": [
+      {
+        "text": "утро доброе",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "28e2ecf8-7e0c-4d55-afb8-6024eb18c6aa",
+    "data": [
+      {
+        "text": "доброго утра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ce1db2f5-bacc-47e8-9c64-9df7d7ea6038",
+    "data": [
+      {
+        "text": "доброго тебе утра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "100950c7-a285-4584-a977-82545188513c",
+    "data": [
+      {
+        "text": "утро доброе утро",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e9377e41-d34b-48f5-bcff-16781ab6f4e3",
+    "data": [
+      {
+        "text": "привет и хорошего утра тебе",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fdb14bb7-9073-4cf5-8994-59de2977d166",
+    "data": [
+      {
+        "text": "и тебя с добрым утром",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

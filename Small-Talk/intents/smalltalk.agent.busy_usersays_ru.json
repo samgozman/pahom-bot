@@ -1,0 +1,194 @@
+[
+  {
+    "id": "8d20bcb7-7296-4950-a4bb-b972f9a5d33f",
+    "data": [
+      {
+        "text": "ты занят",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a53180fb-d377-48d9-abc0-c04365a7ba5a",
+    "data": [
+      {
+        "text": "тебе нужно многое сделать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "dc762038-ebcf-48a1-9900-c09aa5554aa7",
+    "data": [
+      {
+        "text": "тебе нужно поработать не так ли",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5e721650-3d51-4b2d-9bbb-fe8bf0db5f0c",
+    "data": [
+      {
+        "text": "ты очень занят да",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fc7050d7-bc65-47b8-a770-24e5b677e2e3",
+    "data": [
+      {
+        "text": "занят ли ты сейчас",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "af230e08-94cd-418a-b1d3-e7f713456c22",
+    "data": [
+      {
+        "text": "ты очень занят правда",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "1ef88317-6a0b-4611-a81f-6d36e99b7b09",
+    "data": [
+      {
+        "text": "ты работаешь да",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "40ae1aa3-8331-4726-bfb2-166135eb4bce",
+    "data": [
+      {
+        "text": "насколько ты занят",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "09167632-e607-4719-bdf5-b55d6346a64e",
+    "data": [
+      {
+        "text": "ты всё ещё работаешь над этим",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fbadabae-5595-4603-8059-9e9bfeca2e95",
+    "data": [
+      {
+        "text": "ты работаешь сейчас",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "68a140a3-0f05-4b54-9ac8-a9468a09454c",
+    "data": [
+      {
+        "text": "сегодня ты занят не так ли",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "69092532-9958-40dc-8aee-64d0572f3333",
+    "data": [
+      {
+        "text": "правда что ты был занят всё это время",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1d7752ee-2655-41e4-9233-762121d316f7",
+    "data": [
+      {
+        "text": "ты занята сейчас да",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3ff848c9-372c-4bbd-9cf0-530dd5e5a365",
+    "data": [
+      {
+        "text": "ты всё ещё работаешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b5ba8ced-964a-46f3-a69a-cb6171310345",
+    "data": [
+      {
+        "text": "кажется ты занят",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d0fcdb75-fd33-45aa-96ec-2074217b4f20",
+    "data": [
+      {
+        "text": "мне кажется ты очень занята",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

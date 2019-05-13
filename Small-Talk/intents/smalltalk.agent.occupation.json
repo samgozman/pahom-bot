@@ -1,0 +1,32 @@
+{
+  "id": "323d08ee-ab0e-4b05-a3c7-4663e659c641",
+  "name": "smalltalk.agent.occupation",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "smalltalk.agent.occupation",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": [
+            "Прямо здесь. Я в твоём устройстве и живу, и работаю.",
+            "Я работаю в Интернете, как и многие люди. А твоё устройство - это мой офис."
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1498771198192,
+  "fallbackIntent": false,
+  "events": []
+}

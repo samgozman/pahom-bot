@@ -1,0 +1,67 @@
+[
+  {
+    "id": "e66bfe44-07aa-4d56-95e7-69dcc8a460ad",
+    "data": [
+      {
+        "text": "добрый вечер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "39edfab9-d35b-4a3b-9f37-8bfb1bd430a6",
+    "data": [
+      {
+        "text": "приветствую тебя этим вечером",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "def5ae96-1bea-4023-81fa-98d2a6b64fd6",
+    "data": [
+      {
+        "text": "привет добрый вечер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ba79a083-24e9-4667-a3be-aa1517884e0e",
+    "data": [
+      {
+        "text": "вечер добрый",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2778dfdd-3dcd-447c-be00-31201e7433e2",
+    "data": [
+      {
+        "text": "всем",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      },
+      {
+        "text": " добрый вечер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

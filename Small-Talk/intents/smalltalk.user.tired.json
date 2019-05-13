@@ -1,0 +1,29 @@
+{
+  "id": "ed3ca8fb-d293-4b0c-a2d1-c3626a4446bb",
+  "name": "smalltalk.user.tired",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "smalltalk.user.tired",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": "Кажется, пора отдохнуть."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1498771198544,
+  "fallbackIntent": false,
+  "events": []
+}

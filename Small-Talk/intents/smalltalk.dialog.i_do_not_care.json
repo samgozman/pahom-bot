@@ -1,0 +1,29 @@
+{
+  "id": "c4c8272c-3e33-411d-b2e3-65df0da10a04",
+  "name": "smalltalk.dialog.i_do_not_care",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "smalltalk.dialog.i_do_not_care",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": "Давай лучше не будем об этом."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1498771198475,
+  "fallbackIntent": false,
+  "events": []
+}

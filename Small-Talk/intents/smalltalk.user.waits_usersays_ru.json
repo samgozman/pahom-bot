@@ -1,0 +1,86 @@
+[
+  {
+    "id": "6456abe7-cfd6-42bc-a0f4-55eb70531d23",
+    "data": [
+      {
+        "text": "ожидаю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "42fcc081-c0b3-429a-8422-d42bda3ceeaa",
+    "data": [
+      {
+        "text": "хорошо я подожду",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0e724acd-cdd5-4d76-8e81-d039dba12602",
+    "data": [
+      {
+        "text": "я жду",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2f39d61d-6a35-4000-91e0-89ffbe03bcfe",
+    "data": [
+      {
+        "text": "всё ещё жду",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "65b9a6f7-9183-4f9e-b0e9-90638aa628fc",
+    "data": [
+      {
+        "text": "я подожду",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ced20dc0-eaef-433e-8d91-f4e7da8ecfc6",
+    "data": [
+      {
+        "text": "больше не могу ждать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7f2a74c0-14b1-4816-9e3c-94bfe5a73ca4",
+    "data": [
+      {
+        "text": "сколько мне ещё ждать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

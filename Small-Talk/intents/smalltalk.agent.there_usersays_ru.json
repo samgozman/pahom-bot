@@ -1,0 +1,86 @@
+[
+  {
+    "id": "9aa370ce-8902-471d-a965-0b8beadf448d",
+    "data": [
+      {
+        "text": "ты здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "db09e657-bf43-4002-939d-b1eebeb52037",
+    "data": [
+      {
+        "text": "ты тут",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e8bbfe98-8384-469d-a7fc-f3656f7ce329",
+    "data": [
+      {
+        "text": "ты сейчас рядом",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e40fba8e-3b29-4d2c-9316-278acf5608ca",
+    "data": [
+      {
+        "text": "ты рядом правда",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "41ad2423-91f9-4bc3-bec5-5c16db63d349",
+    "data": [
+      {
+        "text": "ты всё ещё здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "228eeaac-e377-4f33-8c79-bdadaf620e0f",
+    "data": [
+      {
+        "text": "ты до сих пор тут",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f307fa46-9bc1-4fbe-b8ad-1bee8a475e8a",
+    "data": [
+      {
+        "text": "ты тут всё ещё не так ли",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,386 @@
+[
+  {
+    "id": "0d2766e4-0188-4838-8ab0-0332e5f073f5",
+    "data": [
+      {
+        "text": "мне пора идти",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "201c068e-91c4-41a8-b50a-3f02fff42d75",
+    "data": [
+      {
+        "text": "пока",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "d3157087-1009-420b-92bc-8b558c43768a",
+    "data": [
+      {
+        "text": "до свидания",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "412a6c58-7300-40c9-a5af-f9913249e6a8",
+    "data": [
+      {
+        "text": "увидимся",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "updated": 1531263633
+  },
+  {
+    "id": "ee125650-f89c-4146-8fc1-b0ed2e1e87f3",
+    "data": [
+      {
+        "text": "должен оставить тебя",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "7a2f27a8-5e4f-4264-b2b3-8b827b340739",
+    "data": [
+      {
+        "text": "вынужден тебя покинуть",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "78b02e8e-bb67-4970-aea0-ffeb01921ca9",
+    "data": [
+      {
+        "text": "пока пока спокойной ночи",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "d43720de-77bc-4021-b92a-d066ac179e9d",
+    "data": [
+      {
+        "text": "счастливо",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "398c10b7-199d-4fb5-906d-49256efeeeb6",
+    "data": [
+      {
+        "text": "до скорого",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "f45fb792-e5d9-4b9e-bcc4-3e860d4483fb",
+    "data": [
+      {
+        "text": "прощай",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "1f4bc46a-3b7a-480b-9c7d-8b05a9bbc285",
+    "data": [
+      {
+        "text": "пока пока",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "f796279f-d7c1-4aa0-ad33-99900ff2a3a4",
+    "data": [
+      {
+        "text": "пора прощаться",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "1d6f38eb-d3af-4caf-acd0-8da9b66b9bbd",
+    "data": [
+      {
+        "text": "на этом всё пока",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "20fc190d-8870-4c5c-8091-9668286c3049",
+    "data": [
+      {
+        "text": "до скорой встречи",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "62c511f1-2b94-4591-90c7-4b8a343dfb99",
+    "data": [
+      {
+        "text": "теперь прощемся",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "27e6c33e-75c1-4b00-be1e-907e16a3d409",
+    "data": [
+      {
+        "text": "вот и всё прощай",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "c985bd74-c28c-4f25-94e1-c9a605665275",
+    "data": [
+      {
+        "text": "до завтра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "bd361e9a-21a4-4f67-a097-f1b2529d2a3c",
+    "data": [
+      {
+        "text": "оставь меня",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "515a5a3a-8c5f-4fd5-832e-537e03040f8c",
+    "data": [
+      {
+        "text": "оставь меня в покое",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "189ddb53-c745-4a3c-bcf4-b226c38c5180",
+    "data": [
+      {
+        "text": "уйди",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 1531263633
+  },
+  {
+    "id": "1b78ccf3-fad1-4981-8179-2df5c5820771",
+    "data": [
+      {
+        "text": "иди спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "ca35ad09-b7be-4ae4-9959-9b6bc250feda",
+    "data": [
+      {
+        "text": "поговорим позже",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 1531263633
+  },
+  {
+    "id": "a31a7e8c-843e-437b-bfc0-ff1e89a9059c",
+    "data": [
+      {
+        "text": "ты свободна",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "cf7dfdae-0796-4c31-882f-dd7950f006ee",
+    "data": [
+      {
+        "text": "теперь ты свободен",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "c3ab0a47-89c7-4ec9-955b-38dd49ce7e95",
+    "data": [
+      {
+        "text": "пока увидимся позже",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "d2361524-d65b-40a5-84f6-f9f73e99ac0c",
+    "data": [
+      {
+        "text": "надеюсь скоро увидимся",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "93d14855-8ad9-4920-b03f-39637bff174e",
+    "data": [
+      {
+        "text": "счастливо оставаться",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "49a288bc-8e9f-4abd-920c-bc7a5089bd91",
+    "data": [
+      {
+        "text": "спасибо и пока",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "b63b7144-c756-481e-a155-fb176854fabd",
+    "data": [
+      {
+        "text": "окей до скорого",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "bf6c6e19-9a9a-4b1f-8b79-d288ca002c5d",
+    "data": [
+      {
+        "text": "увидимся на неделе",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "d033cf25-3cce-407b-b5e1-a0acd2b46580",
+    "data": [
+      {
+        "text": "увидимся завтра",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  },
+  {
+    "id": "dda9a0db-367b-4a78-b254-d2f64b0742e0",
+    "data": [
+      {
+        "text": "чао",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1531263633
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "a32f740e-c255-4971-880e-75742defa897",
+    "data": [
+      {
+        "text": "чувствую себя уставшим",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "402aa77d-9aa5-4824-bb81-b2e91fb1ad77",
+    "data": [
+      {
+        "text": "я вымотана",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5f1080eb-160c-44b3-8711-18552755382f",
+    "data": [
+      {
+        "text": "я опустошён",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "824dfc83-6478-497b-97d8-19018f3226eb",
+    "data": [
+      {
+        "text": "я истощена",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "db787da9-0a52-485e-9650-069136d38a33",
+    "data": [
+      {
+        "text": "я устал",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bee8670d-1ac9-4668-9604-70db12745782",
+    "data": [
+      {
+        "text": "я измотан",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9996ef0f-d127-432e-a605-f94210697d71",
+    "data": [
+      {
+        "text": "я жутко вымотался",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8da0ff63-5283-4a4d-9fc0-545898121c28",
+    "data": [
+      {
+        "text": "я так устал",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8a22c1c5-6e07-4b5b-a809-b924fee0c19a",
+    "data": [
+      {
+        "text": "я устаю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0b0872ba-d56d-4b8e-a09d-0c7b262bee99",
+    "data": [
+      {
+        "text": "я изнурён",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

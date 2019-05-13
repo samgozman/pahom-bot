@@ -1,0 +1,110 @@
+[
+  {
+    "id": "40f92b04-e7dc-48fc-a291-112c45e8caec",
+    "data": [
+      {
+        "text": "постой",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0ce800fa-4b3b-4dd1-9bb2-e0aed343f625",
+    "data": [
+      {
+        "text": "подожди секундочку",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "81a94469-69ae-44d5-b59f-e32149794c14",
+    "data": [
+      {
+        "text": "можешь подождать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9ac24c89-1a4b-4547-9460-66575a6e79b8",
+    "data": [
+      {
+        "text": "подожи пожалуйста",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "789b4ca7-40f4-4cab-b328-6d9549a0190a",
+    "data": [
+      {
+        "text": "погоди",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a2aac349-2d7e-4116-80da-fd26c4af28da",
+    "data": [
+      {
+        "text": "притормози",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6d7238cc-c075-43d2-800b-f8e042beaea8",
+    "data": [
+      {
+        "text": "подождите",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "66f1704e-fb14-432c-9bf9-b7a61e24e54b",
+    "data": [
+      {
+        "text": "постой подожди",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "74e9783b-924a-4375-9698-313ffd6aa78b",
+    "data": [
+      {
+        "text": "не торопись",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

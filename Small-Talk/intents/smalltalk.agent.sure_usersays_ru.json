@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ca1699ab-13ca-4222-87ec-3efe2e6ce7a2",
+    "data": [
+      {
+        "text": "не сомневаешься",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c53ca82a-73d4-4aa9-a0c4-d14d65d9ee13",
+    "data": [
+      {
+        "text": "ты уверен",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "db3252f8-1897-4f0c-a27a-f01e94ad5b50",
+    "data": [
+      {
+        "text": "ты сейчас уверена",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "93dcc102-4cc4-4671-b159-a1f06b710181",
+    "data": [
+      {
+        "text": "уверена",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "35a2f2eb-b26e-482f-a2f9-946e4b6508ea",
+    "data": [
+      {
+        "text": "уверен сейчас",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d7b35bf0-f66d-4d32-a312-fe58f7037928",
+    "data": [
+      {
+        "text": "ты в этом уверена",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9588423d-4014-420b-8277-de74571a400a",
+    "data": [
+      {
+        "text": "ты был в этом уверен",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e03c78c5-0496-42e3-9234-be4abe4cd136",
+    "data": [
+      {
+        "text": "ты в этом не сомневаешься",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

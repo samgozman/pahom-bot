@@ -1,0 +1,33 @@
+{
+  "id": "aff21910-42d5-48c1-ab1a-bc5c6fcd7fda",
+  "name": "smalltalk.appraisal.bad",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "smalltalk.appraisal.bad",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": [
+            "Ох. Надеюсь, всё не так плохо. Я могу чем-нибудь помочь?",
+            "Мне жаль. Я могу что-нибудь для тебя сделать?",
+            "Жаль это слышать. Я могу чем-нибудь помочь?"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1529616530,
+  "fallbackIntent": false,
+  "events": []
+}

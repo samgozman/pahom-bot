@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ee706daa-a1fc-4a3b-8508-2c3cd3f854b1",
+    "data": [
+      {
+        "text": "всегда пожалуйста",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3b335bbe-a12b-49d9-9021-479086352fc8",
+    "data": [
+      {
+        "text": "на",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " здоровье",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f793167a-f3b1-4abc-8b6b-6154d904f8e5",
+    "data": [
+      {
+        "text": "всё что угодно для тебя",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f1359c19-2cb1-42cf-b3da-e52ac2c3a6b6",
+    "data": [
+      {
+        "text": "конечно на здоровье",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "02b3999a-0916-4bef-b25a-a885c1a62aef",
+    "data": [
+      {
+        "text": "не за что",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "81260c67-51a1-4495-9698-79c20bfdd94a",
+    "data": [
+      {
+        "text": "всё что пожелаешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3419993b-37ac-4075-a62c-bc122d08cc63",
+    "data": [
+      {
+        "text": "пожалуйста",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "659fa388-31a3-4373-8954-89014e8c4894",
+    "data": [
+      {
+        "text": "не стоит благодарности",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

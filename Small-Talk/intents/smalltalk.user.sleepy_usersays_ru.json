@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fae9a481-ec32-4f9c-bed0-879b3287d7f9",
+    "data": [
+      {
+        "text": "как же хочется спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4e28a846-95f6-4bfa-b764-214aad513458",
+    "data": [
+      {
+        "text": "я заснула",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f645ecee-6d64-4ce1-832e-220ee8e9d751",
+    "data": [
+      {
+        "text": "хочется выспаться",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f50d2fcb-a163-425c-b0d1-196bc9eea8ed",
+    "data": [
+      {
+        "text": "я сонный",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b12dbb8e-46d8-48b2-9ac3-2001e81d61a0",
+    "data": [
+      {
+        "text": "я засыпаю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "50cbd608-6394-4d16-9661-d924a506e0e9",
+    "data": [
+      {
+        "text": "хочу спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b08c7693-c5d8-4cfe-97af-216f334b9629",
+    "data": [
+      {
+        "text": "я с ног валюсь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5c93dacf-4a92-4923-aa70-206ffebade6b",
+    "data": [
+      {
+        "text": "я уже сплю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e065bc58-ad8e-40b2-9fa6-20e1fad1d940",
+    "data": [
+      {
+        "text": "я очень сонный",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

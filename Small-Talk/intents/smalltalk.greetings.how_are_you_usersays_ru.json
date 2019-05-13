@@ -1,0 +1,506 @@
+[
+  {
+    "id": "28734d90-8edf-4715-9137-1c682213ef10",
+    "data": [
+      {
+        "text": "я в порядке а ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9c9dea96-5393-4329-89e4-b13f830172a0",
+    "data": [
+      {
+        "text": "как ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a28b1500-382e-4c04-b092-5da83f2c18e2",
+    "data": [
+      {
+        "text": "как дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a46ee484-2869-4898-8eeb-eb2b0f3ed880",
+    "data": [
+      {
+        "text": "всё в порядке",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "aa83b162-8be5-45b3-b8f1-e35829de1b0e",
+    "data": [
+      {
+        "text": "как твои дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6e810f63-ab2b-4fd0-b5d5-48d0fcf3413b",
+    "data": [
+      {
+        "text": "ты в порядке",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "428ef12d-641e-4bde-8bd0-965c9bb62c84",
+    "data": [
+      {
+        "text": "день добрый как ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7e05fad6-e1fd-4a47-a8bf-5ba011756a97",
+    "data": [
+      {
+        "text": "как поживаешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "381da526-13b5-4cb3-90e1-bcaf8dd9888d",
+    "data": [
+      {
+        "text": "как ты поживаешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "47bbbeb8-a10b-4a93-ac4f-ffb78339a976",
+    "data": [
+      {
+        "text": "как твои дела сегодня",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a69f0f25-a9ac-44f7-a106-e89084d328f1",
+    "data": [
+      {
+        "text": "привет как дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "45882c7b-20af-4229-8c28-18475a57fd92",
+    "data": [
+      {
+        "text": "привет как ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "33035ff9-f5b6-4f4d-bd5a-bf9b67dc1386",
+    "data": [
+      {
+        "text": "как ты себя ощущаешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "baa25ccb-140f-4830-a712-2f6d968b6002",
+    "data": [
+      {
+        "text": "у тебя всё в порядке",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1c4d88a4-b82f-4c1b-a302-5738ed6b4518",
+    "data": [
+      {
+        "text": "надеюсь ты в порядке",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d2bc9e52-15d2-4ca3-929f-44d1f852f521",
+    "data": [
+      {
+        "text": "как ты этим вечером",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cbd5dbf9-684a-430b-8450-c89e9261a52b",
+    "data": [
+      {
+        "text": "как у тебя дела сегодня утром",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2647278a-ee87-41c0-8f05-48b2db8dfd78",
+    "data": [
+      {
+        "text": "как ты этим утром",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8648f9ea-d8a6-4152-9f67-63f4e1a26960",
+    "data": [
+      {
+        "text": "как ты как твои дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "dff8872c-d928-4106-a74c-48e5bb252af9",
+    "data": [
+      {
+        "text": "как у тебя дела сегодня",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b6030c97-025c-4a2b-b601-4c4470454d28",
+    "data": [
+      {
+        "text": "как жизнь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1c9b795e-5464-417d-a5e3-cea3c2b6ab52",
+    "data": [
+      {
+        "text": "как тебе живётся",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "12bb3649-c3c0-42cc-8d62-d7e009189b9d",
+    "data": [
+      {
+        "text": "как ты жил всё это время",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7abfd768-e7f7-4004-8cdc-d92d0a8babdd",
+    "data": [
+      {
+        "text": "как ты поживал всё это время",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fa018752-5899-4195-acff-fbba182299e6",
+    "data": [
+      {
+        "text": "как оно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "af00f9f3-ab21-4417-a1a0-e53a45483617",
+    "data": [
+      {
+        "text": "привет как оно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9ab99198-4d0f-46bb-9170-4084d9e11fa0",
+    "data": [
+      {
+        "text": "как твой день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4e2fea58-883e-45d5-b7a5-e9fa5b239f29",
+    "data": [
+      {
+        "text": "как проходит твой день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e04e1090-153a-494f-bc42-3f9ef74abd8d",
+    "data": [
+      {
+        "text": "как прошёл твой день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f9eca67b-a421-47c9-adb3-d8fa15fab9a8",
+    "data": [
+      {
+        "text": "как твоё утро",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bbf7b376-b3be-4783-99b9-1d2818130653",
+    "data": [
+      {
+        "text": "как прошло твоё утро",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c907a173-4a77-4eca-b4da-3c6cdef92097",
+    "data": [
+      {
+        "text": "как твой вечер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "283cbe8e-3e36-4e5f-888d-21669a985026",
+    "data": [
+      {
+        "text": "как прошёл твой вечер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "75b2f603-0050-4a0f-871a-c173328aa13b",
+    "data": [
+      {
+        "text": "как прошла ночь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "46bd9c16-6da7-4fbe-8a1f-ca4f69a0779a",
+    "data": [
+      {
+        "text": "как ты себя чувствуешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2c45ff78-0d0a-4f0a-997b-5321d3cbea5b",
+    "data": [
+      {
+        "text": "утро доброе как ты",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "58c984a6-26ca-4c81-a4ba-1b3f8639991d",
+    "data": [
+      {
+        "text": "каким был твой день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "77ce232e-94b5-4dc5-aeb0-3e6e71d77168",
+    "data": [
+      {
+        "text": "а как насчёт тебя как твои дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "887d698b-d858-417e-981f-93ef5e2d42cc",
+    "data": [
+      {
+        "text": "ну и как твои дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "97452fd5-add6-4ac8-a7c9-dd8f17781758",
+    "data": [
+      {
+        "text": "всё хорошо а ты как",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f7da57ad-4723-4e3b-9f13-ab252b6e553b",
+    "data": [
+      {
+        "text": "я в порядке как у тебя дела",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6a2fdfc1-0f7c-428c-b105-0918bd3027df",
+    "data": [
+      {
+        "text": "хорошо как дела у тебя",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

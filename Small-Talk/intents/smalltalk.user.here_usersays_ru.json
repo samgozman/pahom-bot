@@ -1,0 +1,74 @@
+[
+  {
+    "id": "8a9b9cd4-807d-4d9e-8d78-9a2d07306525",
+    "data": [
+      {
+        "text": "я нахожусь здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  },
+  {
+    "id": "7a143374-ce03-426e-b570-373172a851f0",
+    "data": [
+      {
+        "text": "я здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  },
+  {
+    "id": "aa2a2231-f57c-4acc-b678-22f53aa3c373",
+    "data": [
+      {
+        "text": "тут я",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  },
+  {
+    "id": "9c9241ca-36a2-43a2-ba4f-8e9287fbf1b9",
+    "data": [
+      {
+        "text": "я прямо здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  },
+  {
+    "id": "4938d76b-f94f-4fee-99f3-5257fbef2fde",
+    "data": [
+      {
+        "text": "я уже здесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  },
+  {
+    "id": "e10768bd-82ed-47df-bcd6-ee81fd8b7030",
+    "data": [
+      {
+        "text": "я тут",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616819
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "80f02620-8dca-48ac-b092-d7c5ff20fa90",
+    "data": [
+      {
+        "text": "я злюсь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "a7272d9a-e615-4b0a-8b28-508ddb066915",
+    "data": [
+      {
+        "text": "я зол",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "bf4838b3-4057-45ea-b1d5-d1ba257b712a",
+    "data": [
+      {
+        "text": "я на тебя очень зол",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "4461ba63-17db-458e-a074-da52723fa1ed",
+    "data": [
+      {
+        "text": "злюсь на тебя",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "c024a2ae-17e4-4fe2-819e-bd646a5a072b",
+    "data": [
+      {
+        "text": "я взбешён",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "acead829-124a-47d7-872d-2072c6981dcb",
+    "data": [
+      {
+        "text": "я разъярён",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  },
+  {
+    "id": "19e7fec8-1885-4085-a527-a770471fee16",
+    "data": [
+      {
+        "text": "я разгневана",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1529616760
+  }
+]

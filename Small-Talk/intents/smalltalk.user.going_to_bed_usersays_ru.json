@@ -1,0 +1,110 @@
+[
+  {
+    "id": "47de3921-8df5-40b3-8e02-638310e2cc1c",
+    "data": [
+      {
+        "text": "я уже засыпаю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1d53b058-d7b9-42cf-9c54-ffddf7793724",
+    "data": [
+      {
+        "text": "пора спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8a5a9bb2-99eb-4b51-9e34-285358e00fa3",
+    "data": [
+      {
+        "text": "уже пора спать да",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "367b2b37-aacd-4686-a458-49277c0d754f",
+    "data": [
+      {
+        "text": "время ложиться спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b62c3f2f-89f9-4bd6-89fb-f77055ae1cba",
+    "data": [
+      {
+        "text": "нам пора ложиться спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4faac2fb-7265-41b7-b5bb-5a6dda4483d9",
+    "data": [
+      {
+        "text": "я спать доброй ночи",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8fe17a56-70eb-4e73-ad26-8d8e6473f3a4",
+    "data": [
+      {
+        "text": "я устал и хочу спать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "78bd66a9-fb3b-4366-a78f-16fc687e94b1",
+    "data": [
+      {
+        "text": "время сна",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d7ca1563-d9c5-413c-b2bb-826c8186b1cb",
+    "data": [
+      {
+        "text": "отбой",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

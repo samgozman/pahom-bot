@@ -1,0 +1,86 @@
+[
+  {
+    "id": "2526bacf-25b2-404f-b26a-730250d397f1",
+    "data": [
+      {
+        "text": "я правда хорошо выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "72077f5c-c3d1-4f23-aac2-edb28fe88627",
+    "data": [
+      {
+        "text": "как я выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f6ee4565-d436-4dd9-a773-524472670f37",
+    "data": [
+      {
+        "text": "я хорошо выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d665e0e0-7e0d-48f0-857d-4ae1d4eb4752",
+    "data": [
+      {
+        "text": "нормально ли я выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f1987b81-8344-4e4e-962f-4623227fadc1",
+    "data": [
+      {
+        "text": "ты знаешь как я выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8f248de3-d9bd-47b2-a28e-27e2f1fadbdb",
+    "data": [
+      {
+        "text": "ты видишь как я выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "583507f2-30de-427e-a344-fcc5f44b2e09",
+    "data": [
+      {
+        "text": "как по-твоему я выгляжу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

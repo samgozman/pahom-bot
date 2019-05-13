@@ -1,0 +1,122 @@
+[
+  {
+    "id": "b6984861-1210-4359-9957-e7557ea1b1ce",
+    "data": [
+      {
+        "text": "хочу плакать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3fac5009-e89a-485b-98c0-84fb4a96ec58",
+    "data": [
+      {
+        "text": "просто я грустил",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b5223fed-d404-4787-af29-348e1d68838d",
+    "data": [
+      {
+        "text": "я горюю",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "02ccd7f3-ae38-4d0f-b623-551cef3a5d80",
+    "data": [
+      {
+        "text": "мне грустно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b869189c-fa1f-483f-ad64-0931d1485535",
+    "data": [
+      {
+        "text": "я грущу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "602b83a3-1f5f-4248-8ad7-04afd65e2719",
+    "data": [
+      {
+        "text": "я в депрессии",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "db8d495e-17d1-4935-a778-b80d487b3d82",
+    "data": [
+      {
+        "text": "я расстроен",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f648cf73-a610-4560-ae12-6a03f2877c50",
+    "data": [
+      {
+        "text": "у меня был тяжелый день",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "8ebe40a8-5d3f-4ce7-804b-4c8311000357",
+    "data": [
+      {
+        "text": "я горевал",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "23bce7ee-e64f-4142-a565-5312605cde67",
+    "data": [
+      {
+        "text": "мне не радостно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
