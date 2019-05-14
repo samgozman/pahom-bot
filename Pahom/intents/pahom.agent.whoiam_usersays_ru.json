@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ec6576b1-b05c-4606-a19a-a9e5d08ac8ee",
+    "data": [
+      {
+        "text": "Что ты такое?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "fa04a4d0-2bcc-4f25-9239-383f848c3a09",
+    "data": [
+      {
+        "text": "Представьтесь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "c49090f8-0ed5-4adb-a7ad-58ed1255cab1",
+    "data": [
+      {
+        "text": "Как тебя зовут?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "e6bb42e5-1516-43e1-a04a-4f5522778631",
+    "data": [
+      {
+        "text": "Кто ты?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]

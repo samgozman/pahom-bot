@@ -1,0 +1,27 @@
+{
+  "id": "e1a131e5-6bc2-4ef5-a4cf-4c137947bd22",
+  "name": "pahom.agent.bio",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "ru",
+          "speech": "Субъект: Кровавый тиран ДП-10 .\nМужчина 30 лет.\nСтатус: Удалился на покой.\nОсложнения: радиоактивный мутант.\nГод 2081\nСубъект кровавый тиран является вымышленным персонажем, так как представляет собой из себя намного улучшенную версию меня."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

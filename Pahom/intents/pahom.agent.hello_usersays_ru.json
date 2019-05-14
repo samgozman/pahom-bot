@@ -1,0 +1,46 @@
+[
+  {
+    "id": "037e23ed-a58b-434f-b1fb-b29319f1b6ff",
+    "data": [
+      {
+        "text": "куку йопта",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "4d66c01f-da40-43e0-8529-f0c2e63e9045",
+    "data": [
+      {
+        "text": "здарова",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "41f52496-2a70-4a0e-a68c-0d993fb7f297",
+    "data": [
+      {
+        "text": "Ку",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "88394d21-d5aa-4103-8de3-55be97f8b587",
+    "data": [
+      {
+        "text": "Привет",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]
