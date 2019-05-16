@@ -1,0 +1,15 @@
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Release\PahomJSON.exe.config
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Release\PahomJSON.exe
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Release\PahomJSON.pdb
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\MainWindow.g.cs
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\App.g.cs
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON_MarkupCompile.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON_MarkupCompile.lref
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\MainWindow.baml
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.g.resources
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.Properties.Resources.resources
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.csproj.GenerateResource.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.csproj.CoreCompileInputs.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.exe
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.pdb
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Release\PahomJSON.csprojAssemblyReference.cache

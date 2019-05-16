@@ -1,0 +1,15 @@
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Debug\PahomJSON.exe.config
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Debug\PahomJSON.exe
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\bin\Debug\PahomJSON.pdb
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\MainWindow.g.cs
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\App.g.cs
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON_MarkupCompile.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON_MarkupCompile.lref
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\MainWindow.baml
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.g.resources
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.Properties.Resources.resources
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.csproj.GenerateResource.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.csproj.CoreCompileInputs.cache
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.exe
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.pdb
+C:\Users\wapif\source\repos\PahomJSON\PahomJSON\obj\Debug\PahomJSON.csprojAssemblyReference.cache
