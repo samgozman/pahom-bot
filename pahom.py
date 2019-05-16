@@ -29,7 +29,7 @@ def textMessage(bot, update):
     if response:
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
-        bot.send_message(chat_id=update.message.chat_id, text='Я Вас не совсем понял!')
+        bot.send_message(chat_id=update.message.chat_id, text='DialogFlow response error')
 # Хендлеры
 start_command_handler = CommandHandler('start', startCommand)
 text_message_handler = MessageHandler(Filters.text, textMessage)
