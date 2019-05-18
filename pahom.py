@@ -17,7 +17,12 @@ def startCommand(bot, update):
         nameuser = message.chat.first_name + " " + message.chat.last_name
     else:
         nameuser = message.chat.username
-    bot.send_message(chat_id=update.message.chat_id, text='Привет, давай пообщаемся,' + " " + nameuser)
+    PahomStart = ("Здравствуй, " + nameuser + "! "
+                    "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
+                    "Но предупреждаю: я первая в мире нейронная сеть страдающая аутизмом и шизофренией "
+                    "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
+                )
+    bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
 def textMessage(bot, update):
     request = apiai.ApiAI('01a00134d0b848c9827aa4de126cee01').text_request() # Токен API к Dialogflow
     request.lang = 'ru' # На каком языке будет послан запрос
