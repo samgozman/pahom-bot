@@ -1,0 +1,29 @@
+{
+"id": "",
+"name": "pahom.agent.god",
+"auto": true,
+"contexts": [],
+"responses": [
+    {
+"resetContexts": false,
+"affectedContexts": [],
+"parameters": [],
+"messages": [
+    {
+          "type": 0,
+          "lang": "ru",
+          "speech": [
+"Шарлатаны думаю я в это поверю."
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}
