@@ -1,6 +1,6 @@
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import apiai, json
+import apiai, json, markovify
 
 updater = Updater(token='800954163:AAGCXvS7o89JyAvHPxirsXu1kpBg-jOiyyg', request_kwargs={
     'proxy_url': 'socks5://172.104.238.234:2016/',
@@ -9,6 +9,14 @@ updater = Updater(token='800954163:AAGCXvS7o89JyAvHPxirsXu1kpBg-jOiyyg', request
         'password': 'kukareku'
     }
 })
+
+# Get raw text as string.
+with open("shiza.txt") as f:
+    text = f.read()
+
+# Build the model.
+text_model = markovify.Text(text)
+
 # Токен API к Telegram
 dispatcher = updater.dispatcher
 # Обработка команд
@@ -34,7 +42,9 @@ def textMessage(bot, update):
     if response:
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
-        bot.send_message(chat_id=update.message.chat_id, text='DialogFlow response error')
+        # Print five randomly-generated sentences
+        bot.send_message(chat_id=update.message.chat_id, text=text_model.make_sentence())
+        # bot.send_message(chat_id=update.message.chat_id, text='DialogFlow response error')
 # Хендлеры
 start_command_handler = CommandHandler('start', startCommand)
 text_message_handler = MessageHandler(Filters.text, textMessage)
