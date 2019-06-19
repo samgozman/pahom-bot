@@ -1,8 +1,10 @@
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import User, Chat
-import apiai, json, markovify
+import apiai
+import json
+import markovify
 
+# Подключение к боту через прокси
 updater = Updater(token='800954163:AAFX12rmEPkiF567sPYN8X22AuryUuMiR3Q', request_kwargs={
     'proxy_url': 'socks5://172.104.238.234:2016/',
     'urllib3_proxy_kwargs': {
@@ -20,38 +22,45 @@ text_model = markovify.Text(text)
 
 # Токен API к Telegram
 dispatcher = updater.dispatcher
-nameuser = ""
+name_user = ""
 # Обработка команд
 def startCommand(bot, update):
-    nameuser = update.message.from_user.first_name
+    name_user = update.message.from_user.first_name
 
-    PahomStart = ("Здравствуй, " + nameuser + "! "
+    PahomStart = ("Здравствуй, " + name_user + "! "
                     "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
                     "Но предупреждаю: я первая в мире нейронная сеть страдающая аутизмом и шизофренией "
                     "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
                 )
     bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
 def textMessage(bot, update):
-    nameuser = update.message.from_user.first_name
+    name_user = update.message.from_user.first_name
 
-    request = apiai.ApiAI('3c05b3d74f5a469ab9a421d5b8d86775').text_request() # Токен API к Dialogflow
+    request = apiai.ApiAI("3c05b3d74f5a469ab9a421d5b8d86775").text_request() # Токен API к Dialogflow
     request.version = 2 # версия API
     request.lang = 'ru' # На каком языке будет послан запрос
     request.session_id = 'dp10_bot' # ID Сессии диалога (нужно, чтобы потом учить бота)
     request.query = update.message.text # Посылаем запрос к ИИ с сообщением от юзера
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
 
+    # Отладка вывода json ответа
     # print(json.dumps(responseJson, indent=4, sort_keys=True))
-    responseID = responseJson['result']['action'] # action_name диалога для определения тематики вопроса
-    print(responseID)
-    response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON и вытаскиваем ответ
-    response = response.replace("ANONIM", nameuser, 10)
-    # Если есть ответ от бота - присылаем юзеру, если нет - бот его не понял
+
+    response_name = responseJson['result']['metadata']['intentName'] # имя категории для определения тематики вопроса
+    print(response_name)
+
+    # Разбираем JSON и вытаскиваем ответ. Заменяем анонимы на имя юзера
+    response = responseJson['result']['fulfillment']['speech']
+    response = response.replace("ANONIM", name_user, 10)
+
+    # Если есть ответ от DialogFlow, то проверяем на тип ответа.
+    # Если на вопрос нет ответа (pahom.error), то отдаём марковке
     if response:
-        bot.send_message(chat_id=update.message.chat_id, text=response)
+        if response_name == "pahom.error":
+            bot.send_message(chat_id=update.message.chat_id, text=text_model.make_sentence())  # марковка
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
-        # Print five randomly-generated sentences
-        # bot.send_message(chat_id=update.message.chat_id, text=text_model.make_sentence()) # марковка
         bot.send_message(chat_id=update.message.chat_id, text='DialogFlow response error')
 # Хендлеры
 start_command_handler = CommandHandler('start', startCommand)
