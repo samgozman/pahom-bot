@@ -2,7 +2,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json, markovify
 
-updater = Updater(token='800954163:AAGCXvS7o89JyAvHPxirsXu1kpBg-jOiyyg', request_kwargs={
+updater = Updater(token='800954163:AAFX12rmEPkiF567sPYN8X22AuryUuMiR3Q', request_kwargs={
     'proxy_url': 'socks5://172.104.238.234:2016/',
     'urllib3_proxy_kwargs': {
         'username': 'cock',
@@ -33,10 +33,15 @@ def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
 def textMessage(bot, update):
     request = apiai.ApiAI('01a00134d0b848c9827aa4de126cee01').text_request() # Токен API к Dialogflow
+    request.version = 2 # версия API
     request.lang = 'ru' # На каком языке будет послан запрос
     request.session_id = 'dp10_bot' # ID Сессии диалога (нужно, чтобы потом учить бота)
     request.query = update.message.text # Посылаем запрос к ИИ с сообщением от юзера
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
+
+    # print(json.dumps(responseJson, indent=4, sort_keys=True))
+    responseID = responseJson['result']['action'] # action_name диалога для определения тематики вопроса
+    print(responseID)
     response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON и вытаскиваем ответ
     # Если есть ответ от бота - присылаем юзеру, если нет - бот его не понял
     if response:
