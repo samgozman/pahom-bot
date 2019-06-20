@@ -3,6 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai
 import json
 import markovify
+import emoji
 
 # Подключение к боту через прокси
 updater = Updater(token='800954163:AAFX12rmEPkiF567sPYN8X22AuryUuMiR3Q', request_kwargs={
@@ -12,6 +13,42 @@ updater = Updater(token='800954163:AAFX12rmEPkiF567sPYN8X22AuryUuMiR3Q', request
         'password': 'kukareku'
     }
 })
+
+json_data = '{"name": "Brian", "city": "Seattle"}'
+intent_emoji= {
+    "pahom.error": ":new_moon_with_face:",
+    "pahom.agent.army": ":gun:",
+    "pahom.agent.bio": ":pill:",
+    "pahom.agent.busy": ":sweat_drops:",
+    "pahom.agent.bye": ":runner:",
+    "pahom.agent.chasha": ":evergreen_tree:",
+    "pahom.agent.cinema": ":movie_camera:",
+    "pahom.agent.culture": ":art:",
+    "pahom.agent.emotion.agressive": ":rage:",
+    "pahom.agent.emotion.crazy": ":scream:",
+    "pahom.agent.emotion.negative": ":fu:",
+    "pahom.agent.emotion.positive": ":ok_hand:",
+    "pahom.agent.facts": ":bangbang:",
+    "pahom.agent.god": ":pray:",
+    "pahom.agent.gta": ":oncoming_police_car:",
+    "pahom.agent.hello": ":wave:",
+    "pahom.agent.it": ":floppy_disk:",
+    "pahom.agent.kit": ":whale:",
+    "pahom.agent.kolsk": ":o:",
+    "pahom.agent.minecraft": ":space_invader:",
+    "pahom.agent.navalny": ":tea:",
+    "pahom.agent.novel": ":books:",
+    "pahom.agent.patriot": ":ru:",
+    "pahom.agent.photo": ":camera:",
+    "pahom.agent.politic": ":circus_tent:",
+    "pahom.agent.pony": ":rainbow:",
+    "pahom.agent.putin": ":older_man:",
+    "pahom.agent.ussr": ":bear:",
+    "pahom.agent.vacancy": ":briefcase:",
+    "pahom.agent.whoami": ":poop:",
+    "pahom.agent.work": ":office:",
+    "pahom.agent.xj9": ":princess:"
+}
 
 # Get raw text as string.
 with open("shiza.txt") as f:
@@ -53,11 +90,16 @@ def textMessage(bot, update):
     response = responseJson['result']['fulfillment']['speech']
     response = response.replace("ANONIM", name_user, 10)
 
+    # Тут залупа какая-то
+    # print(intent_emoji[response_name])
+    response = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + response
+
     # Если есть ответ от DialogFlow, то проверяем на тип ответа.
     # Если на вопрос нет ответа (pahom.error), то отдаём марковке
     if response:
         if response_name == "pahom.error":
-            bot.send_message(chat_id=update.message.chat_id, text=text_model.make_sentence())  # марковка
+            mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_model.make_sentence()
+            bot.send_message(chat_id=update.message.chat_id, text=mark_sentence)  # марковка
         else:
             bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
