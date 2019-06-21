@@ -1,7 +1,5 @@
-.idea/
+.idea
 .DS_Store
-venv/bin
-venv/include
-venv/lib
+venv
 settings.py
 __pycache__
