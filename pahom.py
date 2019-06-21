@@ -1,12 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai
 import json
 import markovify
 import emoji
-import settings
 import re
+
+import settings
+import text_search
 
 # Подключаемся к ТГ
 updater = Updater(token=settings.telegram_API_token, request_kwargs={
@@ -52,12 +54,13 @@ intent_emoji = {
     "pahom.agent.xj9": ":princess:"
 }
 
-# Открываем исхлдный текст
+# Открываем исходный текст
 with open("shiza.txt") as f:
     text = f.read()
 
 # Build the model.
 text_model = markovify.Text(text)
+
 
 def generatePizdec(count, model):
     # Генерация бредней пахома
@@ -70,32 +73,13 @@ def generatePizdec(count, model):
 
 # generatePizdec(20000,text_model)
 
-def replaceExtraWords(message):
-    # Удалить лишние слова для более быстрого поиска
-    words_to_replace = (
-        "в", "без", "до", "из", "к", "на", "по", "о", "от", "перед", "при", "через", "с", "у", "за", "над", "об", "под",
-        "про", "для", "вблизи", "вглубь", "вдоль", "возле", "около", "вокруг", "впереди", "после", "а", "вдобавок",
-        "именно", "также", "то", "тому", "что", "благо", "буде", "будто", "результате", "чего", "того", "связи", "тем",
-        "силу", "случае", "если", "время", "как", "том", "ввиду", "вопреки", "вроде", "вследствие", "да", "еще", "и", "но",
-        "дабы", "даже", "даром", "чтобы", "же", "едва", "лишь", "ежели", "бы", "не", "затем", "зато", "зачем", "все",
-        "значит", "поэтому", "притом", "всетаки", "следовательно", "тогда", "ибо", "изза", "или", "кабы", "скоро", "словно",
-        "только", "так", "както", "когда", "коли", "кроме", "ли", "либо", "между", "нежели", "столько", "сколько",
-        "только.", "невзирая", "независимо", "несмотря", "ни", "однако", "особенно", "оттого", "отчего", "мере", "причине",
-        "подобно", "пока", "покамест", "покуда", "поскольку", "потому", "почему", "прежде", "чем", "всем", "условии",
-        "причем", "пускай", "пусть", "ради", "раз", "раньше", "тех", "пор", "более", "есть", "тоже", "чуть", "точно",
-        "хотя", "чтоб", "ох", "ой", "пли", "ух", "фу", "фи", "ага", "ах", "тото", "эка", "шш", "вотвот", "др", "ты", "вы",
-        "он", "эх", "ай", "эй", "эти", "эк", "его")
-    # удаляем лишние союзы итд
-    user_message_parsed = message.lower()
-    for x in words_to_replace:
-        regexp = re.compile(r'\b' + x + r'\b')
-        user_message_parsed = re.sub(regexp, '', user_message_parsed)
-    return user_message_parsed
 
 # Токен API к Telegram
 dispatcher = updater.dispatcher
 name_user = ""
 # Обработка команд
+
+
 def startCommand(bot, update):
     name_user = update.message.from_user.first_name
 
@@ -105,11 +89,13 @@ def startCommand(bot, update):
                     "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
                 )
     bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
+
+
 def textMessage(bot, update):
     name_user = update.message.from_user.first_name
     user_message = str(update.message.text)
 
-    print(replaceExtraWords(user_message))
+    print(text_search.replaceExtraWords(user_message))
 
     request = apiai.ApiAI(settings.dialogFlow_API_token).text_request() # Токен API к Dialogflow
     request.version = 2 # версия API
