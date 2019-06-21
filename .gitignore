@@ -4,3 +4,4 @@ venv/bin
 venv/include
 venv/lib
 settings.py
+__pycache__
