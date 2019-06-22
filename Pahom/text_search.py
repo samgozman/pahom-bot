@@ -1,4 +1,5 @@
 import re
+from pahom import settings
 import time
 
 
@@ -41,7 +42,7 @@ def findAnswers(message_array: list):
     message_array.sort(key=len, reverse=True)
 
     # перелапачиваем файл в массив строк
-    file_name = open("data/markov.txt", "r")
+    file_name = open(settings.markov_file, "r")
     file_array = []
     for num, line in enumerate(file_name, 0):
         file_array.append(line)

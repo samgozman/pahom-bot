@@ -5,7 +5,6 @@ import apiai
 import json
 import markovify
 import emoji
-import os
 
 from pahom import settings
 from pahom import text_search
@@ -48,12 +47,9 @@ intent_emoji = {
     "pahom.agent.xj9": ":princess:"
 }
 
-THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-shiza_file = os.path.join(THIS_FOLDER, 'data/shiza.txt')
-markov_file = os.path.join(THIS_FOLDER, 'data/markov.txt')
 
 # Открываем исходный текст
-with open(shiza_file) as f:
+with open(settings.shiza_file) as f:
     text = f.read()
 
 # Build the model.
@@ -65,7 +61,7 @@ def generatePizdec(count, model):
     pizdec = ""
     for i in range(count):
         pizdec += str(model.make_sentence()) + "\n"
-    text_file = open(markov_file, "w")
+    text_file = open(settings.markov_file, "w")
     text_file.write(pizdec)
     text_file.close()
 
