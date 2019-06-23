@@ -3,14 +3,13 @@ from os.path import join, dirname
 
 setup(
     name='pahom',
-    version='0.1.4',
+    version='0.1.7',
     packages=['pahom'],
     install_requires=[
         'python-telegram-bot',
         'apiai',
         'markovify',
-        'emoji',
-        'PySocks'
+        'emoji'
     ],
     # data_files=[('pahom', ['pahom/shiza.txt', 'pahom/markov.txt'])],
     include_package_data=True,
@@ -21,4 +20,5 @@ setup(
     # to update: pip3 install pahom-0.1.tar.gzc --upgrade
     # to run this shit use:
     # python3 -m pahom.__init__
+    # to run in backgroud use bash nohup
 )

@@ -89,8 +89,6 @@ def textMessage(bot, update):
     name_user = update.message.from_user.first_name
     user_message = str(update.message.text)
 
-    print(text_search.replaceExtraWords(user_message))
-
     request = apiai.ApiAI(settings.dialogFlow_API_token).text_request() # Токен API к Dialogflow
     request.version = 2 # версия API
     request.lang = 'ru' # На каком языке будет послан запрос
@@ -102,13 +100,11 @@ def textMessage(bot, update):
     # print(json.dumps(responseJson, indent=4, sort_keys=True))
 
     response_name = responseJson['result']['metadata']['intentName'] # имя категории для определения тематики вопроса
-    print(response_name)
 
     # Разбираем JSON и вытаскиваем ответ. Заменяем анонимы на имя юзера
     response = responseJson['result']['fulfillment']['speech']
     response = response.replace("ANONIM", name_user, 10)
 
-    # Тут залупа какая-то
     # print(intent_emoji[response_name])
     response = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + response
 
@@ -116,7 +112,8 @@ def textMessage(bot, update):
     # Если на вопрос нет ответа (pahom.error), то отдаём марковке
     if response:
         if response_name == "pahom.error":
-            mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_model.make_sentence()
+            # mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_model.make_sentence()
+            mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_search.neurosPahomus(user_message)
             bot.send_message(chat_id=update.message.chat_id, text=mark_sentence)  # марковка
         else:
             bot.send_message(chat_id=update.message.chat_id, text=response)
@@ -132,3 +129,4 @@ dispatcher.add_handler(text_message_handler)
 updater.start_polling(clean=True)
 # Останавливаем бота, если были нажаты Ctrl + C
 updater.idle()
+

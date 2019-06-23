@@ -1,7 +1,9 @@
 import re
 from pahom import settings
 import time
+import random
 
+FILE_ARRAY = []
 
 def replaceExtraWords(message: str):
     # Удалить лишние слова для более быстрого поиска
@@ -17,7 +19,12 @@ def replaceExtraWords(message: str):
         "подобно", "пока", "покамест", "покуда", "поскольку", "потому", "почему", "прежде", "чем", "всем", "условии",
         "причем", "пускай", "пусть", "ради", "раз", "раньше", "тех", "пор", "более", "есть", "тоже", "чуть", "точно",
         "хотя", "чтоб", "ох", "ой", "пли", "ух", "фу", "фи", "ага", "ах", "тото", "эка", "шш", "вотвот", "др", "ты", "вы",
-        "он", "эх", "ай", "эй", "эти", "эк", "его")
+        "он", "эх", "ай", "эй", "эти", "эк", "его","я", "ты", "он", "она", "оно", "мы", "вы", "они", "себя", "мой", "твой",
+        "свой", "ваш", "наш", "его", "её", "их", "кто", "что", "какой", "чей", "где", "который", "откуда", "сколько", "каковой",
+        "каков", "зачем", "кто", "что", "какой", "который", "чей", "сколько", "каковой", "каков", "зачем", "когда", "тот", "этот",
+        "столько", "такой", "таков", "сей", "всякий", "каждый", "сам", "самый", "любой", "иной", "другой", "весь", " никто",
+        "ничто", "никакой", "ничей", "некого", "нечего", "незачем", "некто", "весь", "нечто", "некоторый", "несколько", "кто", "то",
+        "что", "нибудь", "какой", "либо")
     # удаляем лишние союзы итд
     user_message_parsed = message.lower()
     for x in words_to_replace:
@@ -28,7 +35,7 @@ def replaceExtraWords(message: str):
 
 def replaceSigns(message: str):
     # удалить лишние символы
-    message = re.sub(r'[^a-zA-Zа-яА-Я ]', '', message)
+    message = re.sub(r'[^a-zA-Zа-яА-Я0-9\- ]', '', message)
     # удалить лишние пробелы
     message = re.sub(r'\s+', ' ', message)
     return message
@@ -37,15 +44,14 @@ def replaceSigns(message: str):
 def findAnswers(message_array: list):
     # находим вхождения слов из сообщения в марковку
     answers_dict = dict()
-
+    answers_list = list()
     # Сортируем массив по убыванию, чтобы в выборку попали самые длинные слова
     message_array.sort(key=len, reverse=True)
 
     # перелапачиваем файл в массив строк
     file_name = open(settings.markov_file, "r")
-    file_array = []
     for num, line in enumerate(file_name, 0):
-        file_array.append(line)
+        FILE_ARRAY.append(line)
 
     for message in message_array:
         # Проверяем не более 5 вхождений, чтобы не перегружать сервер
@@ -54,14 +60,16 @@ def findAnswers(message_array: list):
         # Открываем исходный текст и ищем в нем слово
         # Причем слово, которое входит внутрь слова тип ANO -> ANONIM
         arr = list()
-        for line in file_array:
+        for line in FILE_ARRAY:
             if re.search(message, str(line).lower()):
                 # print(line)
                 arr.append(line)
+        # Сохраняем в массив все ответы и в словарь с доступом по ключу для более быстрого доступа по ключу
+        answers_list += arr
         answers_dict[message] = arr
 
     file_name.close()
-    return answers_dict
+    return answers_dict, answers_list
 
 
 def prepareMessage(message: str):
@@ -69,10 +77,49 @@ def prepareMessage(message: str):
     return message.split()
 
 
+def findPairDuplicates(data: list):
+    # Поиск пар дубликатов (для дальнейшего выбора наиболее релевантного ответа)
+    data.sort()
+    # print(data)
+    pairs_data = list()
+    for i in range(len(data) - 1):
+        if data[i] == data[i + 1]:
+            pairs_data.append(data[i])
+    return pairs_data
+
+# Тут пахом слегка поумнел, но не сильно))
+def findDependencies(answers_dict: dict, answers_list: list):
+    save_list = []
+    my_list = findPairDuplicates(answers_list)
+    # Если после первой выборки пришел пустой массив, то вернуть рандом
+    while answers_list:
+        save_list = my_list
+        my_list = findPairDuplicates(my_list)
+        if not my_list:
+            break
+    # Если на несколько слов найдено равное кол-во повторок, то вывести все
+    if len(save_list) > 1:
+        iterate_list = save_list
+        save_list = ""
+        for x in range(len(iterate_list)):
+            save_list += str(iterate_list[x])
+            # if x < len(iterate_list)-1:
+            #     save_list += "\n"
+    return ''.join(save_list)
+
+def neurosPahomus(text_ms: str):
+    # запускает всю цепочку пахома
+    test_dict = findAnswers(prepareMessage(text_ms))
+    answer = str(findDependencies(test_dict[0], test_dict[1]))
+    if not answer:
+        return "ебаное нихуя"
+    else:
+        return answer
+#
 # start_time = time.time()
-# text_ms = "Kek,   lole! k на и в Нет kek гы гыебать ПИДОР,,,,,"
-# print(text_ms)
-# print("превращается в:")
-# print(prepareMessage(text_ms))
-# print(findAnswers(prepareMessage(text_ms)))
+# print(neurosPahomus("получению пособия"))
 # print("--- %s seconds ---" % (time.time() - start_time))
+
+# print(findDependencies(dict(), [10,20,20,30,30,40,40]))
+# print(neurosPahomus("получении грядки"))
+
