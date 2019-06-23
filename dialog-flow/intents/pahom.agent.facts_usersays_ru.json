@@ -1,0 +1,74 @@
+[
+  {
+    "id": "41743939-a807-40a0-803c-68e57b3b0388",
+    "data": [
+      {
+        "text": "устав",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "7c0a4eae-ad85-4991-a132-d48c94559499",
+    "data": [
+      {
+        "text": "правила",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "946b201b-3366-40a2-8560-666be49a2775",
+    "data": [
+      {
+        "text": "цитата",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "15c7f7ff-f80c-459b-afa4-935bb748cda3",
+    "data": [
+      {
+        "text": "действительность",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5426a5c6-2a26-4fd3-aed1-ff97d9ad585a",
+    "data": [
+      {
+        "text": "событие",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ea803dfa-05a7-4be9-8937-5d6d9d344fe2",
+    "data": [
+      {
+        "text": "факт",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

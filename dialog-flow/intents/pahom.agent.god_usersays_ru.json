@@ -1,0 +1,62 @@
+[
+  {
+    "id": "58dad74d-6871-4b0a-adf2-a0c94645966f",
+    "data": [
+      {
+        "text": "в кого веришь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a8a9044d-3140-44bb-a09e-850fe6c20b74",
+    "data": [
+      {
+        "text": "во что веришь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8bd4851b-576d-4e3f-8853-1ea9f004c2a7",
+    "data": [
+      {
+        "text": "бог",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "986b5482-8f2b-498b-9bdd-79efc0c49a9f",
+    "data": [
+      {
+        "text": "вера",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7e10109f-10e7-428a-aef1-6e6ec0440443",
+    "data": [
+      {
+        "text": "религия",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
