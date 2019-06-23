@@ -1,9 +1,36 @@
 import re
+import markovify
 from pahom import settings
+import tqdm
 import time
 import random
 
 FILE_ARRAY = []
+
+
+def generatePizdec(count):
+    # Генерация бредней пахома
+
+    # Открываем исходный текст
+    with open(settings.shiza_file) as f:
+        text = f.read()
+        f.close()
+
+    # Строим модель
+    text_model = markovify.Text(text)
+
+    # Записываем наши познания в виде предложений
+    global FILE_ARRAY
+    pizdec = ""
+    # tqdm - для вывода в консоль процесса генерации
+    for i in tqdm.tqdm(range(count)):
+        sentence = text_model.make_sentence()
+        pizdec += str(sentence) + "\n"
+        FILE_ARRAY.append(sentence)
+    text_file = open(settings.markov_file, "w")
+    text_file.write(pizdec)
+    text_file.close()
+
 
 def replaceExtraWords(message: str):
     # Удалить лишние слова для более быстрого поиска
@@ -40,6 +67,14 @@ def replaceSigns(message: str):
     message = re.sub(r'\s+', ' ', message)
     return message
 
+def txtToList(file_name):
+    # перелапачиваем файл в массив строк
+    file = open(file_name, "r")
+    array = []
+    for num, line in enumerate(file, 0):
+        array.append(line)
+    file_name.close()
+    return array
 
 def findAnswers(message_array: list):
     # находим вхождения слов из сообщения в марковку
@@ -48,10 +83,9 @@ def findAnswers(message_array: list):
     # Сортируем массив по убыванию, чтобы в выборку попали самые длинные слова
     message_array.sort(key=len, reverse=True)
 
-    # перелапачиваем файл в массив строк
-    file_name = open(settings.markov_file, "r")
-    for num, line in enumerate(file_name, 0):
-        FILE_ARRAY.append(line)
+    # Использовать в случае подгрузки модели из внешнего файла
+    # global FILE_ARRAY
+    # FILE_ARRAY = txtToList(settings.markov_file)
 
     for message in message_array:
         # Проверяем не более 5 вхождений, чтобы не перегружать сервер
@@ -68,7 +102,6 @@ def findAnswers(message_array: list):
         answers_list += arr
         answers_dict[message] = arr
 
-    file_name.close()
     return answers_dict, answers_list
 
 
@@ -123,3 +156,5 @@ def neurosPahomus(text_ms: str):
 # print(findDependencies(dict(), [10,20,20,30,30,40,40]))
 # print(neurosPahomus("получении грядки"))
 
+# generatePizdec(30000)
+# print('done')

@@ -3,7 +3,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai
 import json
-import markovify
 import emoji
 
 from pahom import settings
@@ -47,25 +46,8 @@ intent_emoji = {
     "pahom.agent.xj9": ":princess:"
 }
 
-
-# Открываем исходный текст
-with open(settings.shiza_file) as f:
-    text = f.read()
-
-# Build the model.
-text_model = markovify.Text(text)
-
-
-def generatePizdec(count, model):
-    # Генерация бредней пахома
-    pizdec = ""
-    for i in range(count):
-        pizdec += str(model.make_sentence()) + "\n"
-    text_file = open(settings.markov_file, "w")
-    text_file.write(pizdec)
-    text_file.close()
-
-# generatePizdec(20000,text_model)
+# Генерация бредней пахома при старте скрипта
+text_search.generatePizdec(100000)
 
 
 # Токен API к Telegram
@@ -112,7 +94,6 @@ def textMessage(bot, update):
     # Если на вопрос нет ответа (pahom.error), то отдаём марковке
     if response:
         if response_name == "pahom.error":
-            # mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_model.make_sentence()
             mark_sentence = emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True) + text_search.neurosPahomus(user_message)
             bot.send_message(chat_id=update.message.chat_id, text=mark_sentence)  # марковка
         else:

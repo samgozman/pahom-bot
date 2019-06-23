@@ -9,7 +9,8 @@ setup(
         'python-telegram-bot',
         'apiai',
         'markovify',
-        'emoji'
+        'emoji',
+        'tqdm'
     ],
     # data_files=[('pahom', ['pahom/shiza.txt', 'pahom/markov.txt'])],
     include_package_data=True,
