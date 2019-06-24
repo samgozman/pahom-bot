@@ -1,50 +1,24 @@
 #!/usr/bin/env python3.7
-# Настройки
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from threading import Thread
 
 from pahom import settings
 from pahom import text_search
-from pahom import dialogflow
-
-# Подключаемся к ТГ
-updater = Updater(token=settings.telegram_API_token)
-
+from pahom import telegram_bot
 
 # Генерация бредней пахома при старте скрипта
 text_search.generatePizdec(500)
 
+# telegram_bot.work(settings.telegram_API_token_1)
+#
 
-# Токен API к Telegram
-dispatcher = updater.dispatcher
-name_user = ""
-# Обработка команд
+token1: str = settings.telegram_API_token_1
+token2: str = settings.telegram_API_token_2
 
+t1 = Thread(target=telegram_bot.work, args=(token1,))
+t2 = Thread(target=telegram_bot.work, args=(token2,))
 
-def startCommand(bot, update):
-    name_user = update.message.from_user.first_name
+t1.start()
+t2.start()
 
-    PahomStart = ("Здравствуй, " + name_user + "! "
-                    "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
-                    "Но предупреждаю: я первая в мире нейронная сеть страдающая аутизмом и шизофренией "
-                    "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
-                )
-    bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
-
-
-def textMessage(bot, update):
-    name_user = update.message.from_user.first_name
-    user_message = str(update.message.text)
-    bot.send_message(chat_id=update.message.chat_id, text=dialogflow.getTextAnswer(user_message, name_user))
-
-
-# Хендлеры
-start_command_handler = CommandHandler('start', startCommand)
-text_message_handler = MessageHandler(Filters.text, textMessage)
-# Добавляем хендлеры в диспетчер
-dispatcher.add_handler(start_command_handler)
-dispatcher.add_handler(text_message_handler)
-# Начинаем поиск обновлений
-updater.start_polling(clean=True)
-# Останавливаем бота, если были нажаты Ctrl + C
-updater.idle()
-
+t1.join()
+t2.join()
