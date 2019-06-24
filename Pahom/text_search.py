@@ -1,10 +1,12 @@
 import re
 import markovify
 from pahom import settings
+from pahom import stremmer
 import tqdm
 from collections import OrderedDict
 import time
 import random
+
 
 FILE_ARRAY = []
 
@@ -109,6 +111,8 @@ def findAnswers(message_array: list):
 
 def prepareMessage(message: str):
     message = replaceSigns(replaceExtraWords(message))
+    # проходимся стреммером чтобы получить слово без окончаний
+    message = stremmer.Porter.stem(message)
     return message.split()
 
 
