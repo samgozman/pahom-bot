@@ -47,7 +47,7 @@ intent_emoji = {
 }
 
 # Генерация бредней пахома при старте скрипта
-text_search.generatePizdec(100000)
+text_search.generatePizdec(30000)
 
 
 # Токен API к Telegram

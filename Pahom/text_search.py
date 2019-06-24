@@ -2,6 +2,7 @@ import re
 import markovify
 from pahom import settings
 import tqdm
+from collections import OrderedDict
 import time
 import random
 
@@ -21,14 +22,15 @@ def generatePizdec(count):
 
     # Записываем наши познания в виде предложений
     global FILE_ARRAY
-    pizdec = ""
     # tqdm - для вывода в консоль процесса генерации
     for i in tqdm.tqdm(range(count)):
         sentence = text_model.make_sentence()
-        pizdec += str(sentence) + "\n"
         FILE_ARRAY.append(sentence)
+    # Удаляем дубликаты строк. В словаре не может быть одинаковых ключей :)
+    FILE_ARRAY = list(OrderedDict.fromkeys(FILE_ARRAY))
+    print(str(len(FILE_ARRAY)) + " generated")
     text_file = open(settings.markov_file, "w")
-    text_file.write(pizdec)
+    text_file.write('\n'.join(map(str, FILE_ARRAY)))
     text_file.close()
 
 
@@ -123,7 +125,19 @@ def findPairDuplicates(data: list):
 # Тут пахом слегка поумнел, но не сильно))
 def findDependencies(answers_dict: dict, answers_list: list):
     save_list = []
+    global FILE_ARRAY
+
+    # Если пришел пустой ответ
+    if not answers_list:
+        return random.choice(FILE_ARRAY)
+
+    # Поиск первой пары
     my_list = findPairDuplicates(answers_list)
+
+    # Если пар не нашлось, то выдать рандомный ответ из списка потенциальных ответов
+    if not my_list:
+        return random.choice(answers_list)
+
     # Если после первой выборки пришел пустой массив, то вернуть рандом
     while answers_list:
         save_list = my_list
@@ -144,10 +158,7 @@ def neurosPahomus(text_ms: str):
     # запускает всю цепочку пахома
     test_dict = findAnswers(prepareMessage(text_ms))
     answer = str(findDependencies(test_dict[0], test_dict[1]))
-    if not answer:
-        return "ебаное нихуя"
-    else:
-        return answer
+    return answer
 #
 # start_time = time.time()
 # print(neurosPahomus("получению пособия"))
