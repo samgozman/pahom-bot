@@ -112,8 +112,10 @@ def findAnswers(message_array: list):
 def prepareMessage(message: str):
     message = replaceSigns(replaceExtraWords(message))
     # проходимся стреммером чтобы получить слово без окончаний
-    message = stremmer.Porter.stem(message)
-    return message.split()
+    ms_list = list()
+    for word in list(message.split()):
+        ms_list.append(stremmer.Porter.stem(word))
+    return ms_list
 
 
 def findPairDuplicates(data: list):
@@ -128,7 +130,7 @@ def findPairDuplicates(data: list):
 
 # Тут пахом слегка поумнел, но не сильно))
 def findDependencies(answers_dict: dict, answers_list: list):
-    save_list = []
+    save_list = list()
     global FILE_ARRAY
 
     # Если пришел пустой ответ
@@ -147,13 +149,13 @@ def findDependencies(answers_dict: dict, answers_list: list):
         save_list = my_list
         my_list = findPairDuplicates(my_list)
         if not my_list:
-            break
+            return random.choice(save_list)
     # Если на несколько слов найдено равное кол-во повторок, то вывести все
     if len(save_list) > 1:
         iterate_list = save_list
-        save_list = ""
+        print("equal")
         for x in range(len(iterate_list)):
-            save_list += str(iterate_list[x])
+            save_list.append(iterate_list[x])
             # if x < len(iterate_list)-1:
             #     save_list += "\n"
     return ''.join(save_list)
@@ -161,7 +163,7 @@ def findDependencies(answers_dict: dict, answers_list: list):
 def neurosPahomus(text_ms: str):
     # запускает всю цепочку пахома
     test_dict = findAnswers(prepareMessage(text_ms))
-    answer = str(findDependencies(test_dict[0], test_dict[1]))
+    answer = ''.join(findDependencies(test_dict[0], test_dict[1]))
     return answer
 #
 # start_time = time.time()
@@ -169,7 +171,7 @@ def neurosPahomus(text_ms: str):
 # print("--- %s seconds ---" % (time.time() - start_time))
 
 # print(findDependencies(dict(), [10,20,20,30,30,40,40]))
-# print(neurosPahomus("получении грядки"))
+# print(neurosPahomus("грядки полученной"))
 
 # generatePizdec(30000)
 # print('done')
