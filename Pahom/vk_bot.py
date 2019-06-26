@@ -30,7 +30,7 @@ vk = vk_session.get_api()
 vk_session.auth()
 
 
-def create_reply_comment (text, post_id, reply_comment, from_id =0):
+def create_reply_comment(text, post_id, reply_comment, from_id =0):
     # text - текст юзера
     if from_id != settings.vk_bot_id:
         if from_id > 0:
@@ -44,7 +44,7 @@ def create_reply_comment (text, post_id, reply_comment, from_id =0):
                                          message=comment)
 
 
-def create_comment (text, post_id, from_id=0):
+def create_comment(text, post_id, from_id=0):
     # text - текст поста
     if from_id != settings.vk_bot_id:
         if from_id > 0:
@@ -68,10 +68,10 @@ def work():
                 if post['comments']['count'] == 0:
                     if random.random() > 0.5:
                         # post['text'] - текст записи для марковки
-                        print('57')
                         try:
                             create_comment(post['text'], post['id'])
-                        except Exception:
+                        except Exception as e:
+                            print("Error " + str(e))
                             time.sleep(5)
                 if post['comments']['count'] > 0:
                         get_comments_from_post = vk.wall.getComments(owner_id=settings.vk_public_id_1,
@@ -81,17 +81,17 @@ def work():
                         if get_comments_from_post['items']:
                             for comment in get_comments_from_post['items']:
                                 if random.random(0.0, 1.0) > 0.5:
-                                    print('64')
                                     # comment['text'] - текст комментария для марковки
                                     try:
                                         create_reply_comment(comment['text'], post['id'], comment['id'], comment['from_id'])
-                                    except Exception:
+                                    except Exception as e:
+                                        print("Error " + str(e))
                                         time.sleep(5)
                                 if random.random(0.0, 1.0) > 0.5:
-                                    #comment['text'] - текст комментария для марковки
-                                    print('69')
+                                    # comment['text'] - текст комментария для марковки
                                     try:
                                         create_comment(comment['text'], post['id'], comment['from_id'])
-                                    except Exception:
+                                    except Exception as e:
+                                        print("Error " + str(e))
                                         time.sleep(5)
         time.sleep(10)
