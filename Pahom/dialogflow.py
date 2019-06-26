@@ -1,5 +1,6 @@
 from pahom import settings
 from pahom import text_search
+from pahom import jsonloads
 import apiai
 import json
 import emoji
@@ -64,11 +65,18 @@ def getEmoji(response_name: str):
     return str(emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True))
 
 
-def getTextAnswer(user_message, name_user, markov_only=False):
+def getTextAnswer(user_message, name_user, no_dialogflow=True):
 
-    # Если markov_only true, тогда генерировать ТОЛЬКО марковку, без обращения в DialogFlow
-    if markov_only:
-        return str(getEmoji("pahom.error") + text_search.neurosPahomus(user_message).replace("ANONIM", name_user, 5))
+    # Если no_dialogflow True, тогда пытаемся найти ответ в json или генерим марковку, без обращения в DialogFlow
+    if no_dialogflow:
+        prepared_message = text_search.prepareMessage(user_message)
+        prepared_answer, response_name = jsonloads.getAnswer(prepared_message)
+        if prepared_answer is not None:
+            # Добавляем к найденному ответу кусочек бредятины
+            prepared_answer += ("\n" + text_search.neurosPahomus(user_message))
+            return str(getEmoji(str(response_name)) + prepared_answer.replace("ANONIM", name_user, 5))
+        else:
+            return str(getEmoji("pahom.error") + text_search.neurosPahomus(user_message).replace("ANONIM", name_user, 5))
     else:
         response, response_name = getResponse(user_message)
         # Проверка на пустой ответ

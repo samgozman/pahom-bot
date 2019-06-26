@@ -5,3 +5,4 @@ settings.py
 __pycache__
 dist
 pahom.egg-info
+vk_config.v2.json

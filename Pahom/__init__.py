@@ -4,9 +4,13 @@ from threading import Thread
 from pahom import settings
 from pahom import text_search
 from pahom import telegram_bot
+from pahom import jsonloads
 
-# Генерация бредней пахома при старте скрипта
-text_search.generatePizdec(50000)
+# Генерация бредней пахома при старте скрипта (кол-во строк)
+text_search.generatePizdec(100000)
+
+# Выгражаем все JSON файлы в память для быстрой работы
+jsonloads.openJson()
 
 # telegram_bot.work(settings.telegram_API_token_1)
 #

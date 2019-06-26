@@ -1,2 +1,1 @@
-include pahom/data/markov.txt
-include pahom/data/shiza.txt
+recursive-include pahom/data *
