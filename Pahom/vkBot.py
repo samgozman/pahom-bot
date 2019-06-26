@@ -1,23 +1,18 @@
 import vk_api
-from vk_api.longpoll import VkLongPoll, VkEventType
-from vk_api.utils import get_random_id
 import random
 import time
+from pahom import settings
+from pahom import dialogflow
 
-PUBLIC_ID = -183833688
-APP_ID = 7033657
-BOT_ID = 521893394
-DEEP_POSTS= 10
-DEEP_COMMENTS= 2
-LOGIN = 'login'
-PASS = 'pass'
+DEEP_POSTS = 10
+DEEP_COMMENTS = 2
 
 #
-#vk_session = vk_api.VkApi(token='1ca9b0c2107cea97574ffb5e15eb9da073df3713500a1a741145a53923d4fa4110c3ef24e607c942e0cdf')
-#vk = vk_session.get_api()
+# vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
+# vk = vk_session.get_api()
 
-#longpoll = VkLongPoll (vk_session)
-#for event in longpoll.listen():
+# longpoll = VkLongPoll (vk_session)
+# for event in longpoll.listen():
 #    if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
 #        print('id{}: "{}"'.format(event.user_id, event.text), end='\n')
 
@@ -29,52 +24,74 @@ PASS = 'pass'
 #            message=response_from_bot
 #        )
 
-vk_session = vk_api.VkApi (LOGIN, PASS, app_id=APP_ID, scope=8192)
+vk_session = vk_api.VkApi (settings.vk_login, settings.vk_pass, app_id=settings.vk_app_id, scope=8192)
 vk = vk_session.get_api()
 
 vk_session.auth()
 
-def createReplyComment (text, postID, replyComment, fromID =0):
-    if fromID != BOT_ID:
-        if fromID >0:
-            user = vk.users.get (user_id = fromID)
-            return (vk.wall.createComment(owner_id=PUBLIC_ID, post_id=postID, reply_to_comment=replyComment, message='[id{}|{}], {}'.format(str(fromID), user[0]['first_name'], text)))
 
-def createComment (text, postID, fromID =0):
-    if fromID != BOT_ID:
-        if fromID >0:
-            user = vk.users.get (user_id = fromID)
-            return (vk.wall.createComment(owner_id=PUBLIC_ID, post_id=postID, message='[id{}|{}], {}'.format(str(fromID), user[0]['first_name'], text)))
+def create_reply_comment (text, post_id, reply_comment, from_id =0):
+    # text - текст юзера
+    if from_id != settings.vk_bot_id:
+        if from_id > 0:
+            user = vk.users.get(user_id=from_id)
+            user_name = '[id{}|{}]'.format(str(from_id), user[0]['first_name'])
+            comment = dialogflow.text_answer(text, user_name, True)
+            if "[id" not in comment:
+                comment = '[id{}|{}], {}'.format(str(from_id), user[0]['first_name'], comment)
+            return vk.wall.createComment(owner_id=settings.vk_public_id_1, post_id=post_id,
+                                         reply_to_comment=reply_comment,
+                                         message=comment)
+
+
+def create_comment (text, post_id, from_id=0):
+    # text - текст поста
+    if from_id != settings.vk_bot_id:
+        if from_id > 0:
+            user = vk.users.get(user_id=from_id)
+            user_name = '[id{}|{}]'.format(str(from_id), user[0]['first_name'])
+            comment = dialogflow.text_answer(text, user_name, True)
+            # Если так случилось, что пахом ни к кому не обращается, то насильственно добавим обращение в начало
+            if "[id" not in comment:
+                comment = '[id{}|{}], {}'.format(str(from_id), user[0]['first_name'], comment)
+            return vk.wall.createComment(owner_id=settings.vk_public_id_1, post_id=post_id, message=comment)
         else:
-            return (vk.wall.createComment(owner_id=PUBLIC_ID, post_id=postID, message= text))
-while True:
-    getPostFromPublic = vk.wall.get(count=DEEP_POSTS, owner_id=PUBLIC_ID)
-    if getPostFromPublic['items']:
-        for post in getPostFromPublic['items']:
-            if post['comments']['count'] == 0:
-                if random.random() > 0.5:
-                    #post['text'] - текст записи для марковки
-                    print ('57')
-                    try:
-                        createComment ('ТЕКСТ' + str (random.random()), post['id'])
-                    except Exception:
-                        time.sleep(5)
-            if post['comments']['count'] > 0:
-                    getCommentsFromPost = vk.wall.getComments (owner_id = PUBLIC_ID, post_id=post['id'], offset=0, count=DEEP_COMMENTS, extended=1, sort="desc")
-                    if getCommentsFromPost['items']:
-                        for comment in getCommentsFromPost['items']:
-                            if random.random() > 0.5:
-                                print('64')
-                                #comment['text'] - текст комментария для марковки
-                                try:
-                                    createReplyComment('ТЕКСТ' + str (random.random()), post['id'], comment['id'],comment['from_id'])
-                                except Exception:
-                                    time.sleep(5)
-                            if random.random() > 0.5:
-                                #comment['text'] - текст комментария для марковки
-                                print('69')
-                                try:
-                                    createComment ('ТЕКСТ' + str (random.random()), post['id'], comment['from_id'])
-                                except Exception:
-                                    time.sleep (5)
-    time.sleep(10)
+            comment = dialogflow.text_answer(text, "ANONIM", True)
+            return vk.wall.createComment(owner_id=settings.vk_public_id_1, post_id=post_id, message=comment)
+
+
+def work():
+    while True:
+        get_post_from_public = vk.wall.get(count=DEEP_POSTS, owner_id=settings.vk_public_id_1)
+        if get_post_from_public['items']:
+            for post in get_post_from_public['items']:
+                if post['comments']['count'] == 0:
+                    if random.random() > 0.5:
+                        # post['text'] - текст записи для марковки
+                        print('57')
+                        try:
+                            create_comment(post['text'], post['id'])
+                        except Exception:
+                            time.sleep(5)
+                if post['comments']['count'] > 0:
+                        get_comments_from_post = vk.wall.getComments(owner_id=settings.vk_public_id_1,
+                                                                     post_id=post['id'], offset=0,
+                                                                     count=DEEP_COMMENTS, extended=1,
+                                                                     sort="desc")
+                        if get_comments_from_post['items']:
+                            for comment in get_comments_from_post['items']:
+                                if random.random(0.0, 1.0) > 0.5:
+                                    print('64')
+                                    # comment['text'] - текст комментария для марковки
+                                    try:
+                                        create_reply_comment(comment['text'], post['id'], comment['id'], comment['from_id'])
+                                    except Exception:
+                                        time.sleep(5)
+                                if random.random(0.0, 1.0) > 0.5:
+                                    #comment['text'] - текст комментария для марковки
+                                    print('69')
+                                    try:
+                                        create_comment(comment['text'], post['id'], comment['from_id'])
+                                    except Exception:
+                                        time.sleep(5)
+        time.sleep(10)

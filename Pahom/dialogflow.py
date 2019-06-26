@@ -66,7 +66,7 @@ def emojify(response_name: str):
     return str(emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True))
 
 
-def text_answer(user_message, name_user, no_dialogflow=True):
+def text_answer(user_message, name_user="ANONIM", no_dialogflow=True):
 
     # Если no_dialogflow True, тогда пытаемся найти ответ в json или генерим марковку, без обращения в DialogFlow
     if no_dialogflow:

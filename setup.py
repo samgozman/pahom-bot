@@ -10,7 +10,8 @@ setup(
         'apiai',
         'markovify',
         'emoji',
-        'tqdm'
+        'tqdm',
+        'vk_api'
     ],
     # data_files=[('pahom', ['pahom/shiza.txt', 'pahom/markov.txt'])],
     include_package_data=True,
