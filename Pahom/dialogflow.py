@@ -5,7 +5,8 @@ import apiai
 import json
 import emoji
 
-def setConnect():
+
+def connect():
     request = apiai.ApiAI(settings.dialogFlow_API_token).text_request() # Токен API к Dialogflow
     request.version = 2 # версия API
     request.lang = 'ru' # На каком языке будет послан запрос
@@ -13,9 +14,9 @@ def setConnect():
     return request
 
 
-def getResponse(user_message: str):
+def response(user_message: str):
     # Посылаем запрос к DialogFlow с сообщением от юзера
-    request = setConnect()
+    request = connect()
     request.query = user_message
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
 
@@ -26,7 +27,7 @@ def getResponse(user_message: str):
     return answer, theme
 
 
-def getEmoji(response_name: str):
+def emojify(response_name: str):
     # Выдача emoji на основе категории ответа
     intent_emoji = {
         "pahom.error": ":new_moon_with_face:",
@@ -65,26 +66,26 @@ def getEmoji(response_name: str):
     return str(emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True))
 
 
-def getTextAnswer(user_message, name_user, no_dialogflow=True):
+def text_answer(user_message, name_user, no_dialogflow=True):
 
     # Если no_dialogflow True, тогда пытаемся найти ответ в json или генерим марковку, без обращения в DialogFlow
     if no_dialogflow:
-        prepared_message = text_search.prepareMessage(user_message)
-        prepared_answer, response_name = jsonloads.getAnswer(prepared_message)
+        prepared_message = text_search.prepare_message(user_message)
+        prepared_answer, response_name = jsonloads.text_answer(prepared_message)
         if prepared_answer is not None:
             # Добавляем к найденному ответу кусочек бредятины
-            prepared_answer += ("\n" + text_search.neurosPahomus(user_message))
-            return str(getEmoji(str(response_name)) + prepared_answer.replace("ANONIM", name_user, 5))
+            prepared_answer += ("\n" + text_search.neuros_pahomus(user_message))
+            return str(emojify(str(response_name)) + prepared_answer.replace("ANONIM", name_user, 5))
         else:
-            return str(getEmoji("pahom.error") + text_search.neurosPahomus(user_message).replace("ANONIM", name_user, 5))
+            return str(emojify("pahom.error") + text_search.neuros_pahomus(user_message).replace("ANONIM", name_user, 5))
     else:
-        response, response_name = getResponse(user_message)
+        response_message, response_name = response(user_message)
         # Проверка на пустой ответ
-        if not response:
+        if not response_message:
             return "DialogFlow response error"
         # Заменяем анонимы на имя юзера, добавляем смайлы
-        smile = getEmoji(response_name)
+        smile = emojify(response_name)
         if response_name == "pahom.error":
-            return str(smile + text_search.neurosPahomus(user_message).replace("ANONIM", name_user, 5))
+            return str(smile + text_search.neuros_pahomus(user_message).replace("ANONIM", name_user, 5))
         else:
-            return str(smile + response.replace("ANONIM", name_user, 5))
+            return str(smile + response_message.replace("ANONIM", name_user, 5))

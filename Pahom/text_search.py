@@ -4,14 +4,13 @@ from pahom import settings
 from pahom import stremmer
 import tqdm
 from collections import OrderedDict
-import time
 import random
 
 
 FILE_ARRAY = []
 
 
-def generatePizdec(count):
+def generate_model(count):
     # Генерация бредней пахома
 
     # Открываем исходный текст
@@ -36,7 +35,7 @@ def generatePizdec(count):
     text_file.close()
 
 
-def replaceExtraWords(message: str):
+def replace_extra_words(message: str):
     # Удалить лишние слова для более быстрого поиска
     words_to_replace = (
         'в', 'без', 'до', 'из', 'к', 'на', 'по', 'о', 'от', 'перед', 'при', 'через', 'с', 'у', 'за',
@@ -65,14 +64,14 @@ def replaceExtraWords(message: str):
     return user_message_parsed
 
 
-def replaceSigns(message: str):
+def replace_signs(message: str):
     # удалить лишние символы
     message = re.sub(r'[^a-zA-Zа-яА-Я0-9\- ]', '', message)
     # удалить лишние пробелы
     message = re.sub(r'\s+', ' ', message)
     return message
 
-def txtToList(file_name):
+def txt_to_list(file_name):
     # перелапачиваем файл в массив строк
     file = open(file_name, "r")
     array = []
@@ -81,7 +80,7 @@ def txtToList(file_name):
     file_name.close()
     return array
 
-def findAnswers(message_array: list):
+def find_answers(message_array: list):
     # находим вхождения слов из сообщения в марковку
     answers_dict = dict()
     answers_list = list()
@@ -90,7 +89,7 @@ def findAnswers(message_array: list):
 
     # Использовать в случае подгрузки модели из внешнего файла
     # global FILE_ARRAY
-    # FILE_ARRAY = txtToList(settings.markov_file)
+    # FILE_ARRAY = txt_to_list(settings.markov_file)
 
     for message in message_array:
         # Проверяем не более 5 вхождений, чтобы не перегружать сервер
@@ -110,8 +109,8 @@ def findAnswers(message_array: list):
     return answers_dict, answers_list
 
 
-def prepareMessage(message: str):
-    message = replaceSigns(replaceExtraWords(message))
+def prepare_message(message: str):
+    message = replace_signs(replace_extra_words(message))
     # проходимся стреммером чтобы получить слово без окончаний
     ms_list = list()
     for word in list(message.split()):
@@ -130,7 +129,7 @@ def findPairDuplicates(data: list):
     return pairs_data
 
 # Тут пахом слегка поумнел, но не сильно))
-def findDependencies(answers_dict: dict, answers_list: list):
+def find_dependencies(answers_dict: dict, answers_list: list):
     save_list = list()
     global FILE_ARRAY
 
@@ -160,19 +159,19 @@ def findDependencies(answers_dict: dict, answers_list: list):
             #     save_list += "\n"
     return ''.join(save_list)
 
-def neurosPahomus(text_ms: str):
+def neuros_pahomus(text_ms: str):
     # запускает всю цепочку пахома
-    message = prepareMessage(text_ms)
-    test_dict = findAnswers(message)
-    answer = ''.join(findDependencies(test_dict[0], test_dict[1]))
+    message = prepare_message(text_ms)
+    test_dict = find_answers(message)
+    answer = ''.join(find_dependencies(test_dict[0], test_dict[1]))
     return answer
 #
 # start_time = time.time()
-# print(neurosPahomus("получению пособия"))
+# print(neuros_pahomus("получению пособия"))
 # print("--- %s seconds ---" % (time.time() - start_time))
 
-# print(findDependencies(dict(), [10,20,20,30,30,40,40]))
-# print(neurosPahomus("грядки полученной"))
+# print(find_dependencies(dict(), [10,20,20,30,30,40,40]))
+# print(neuros_pahomus("грядки полученной"))
 
-# generatePizdec(30000)
+# generate_model(30000)
 # print('done')

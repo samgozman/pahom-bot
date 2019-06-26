@@ -9,7 +9,7 @@ PATH = str(settings.THIS_FOLDER) + "/data/json/dialog-flow/intents"
 # Спарсеный JSON прячется тут
 JSON = dict()
 
-def listOfFiles():
+def files_list():
     files = list()
     for file in os.listdir(PATH):
         if file.endswith(".json"):
@@ -17,11 +17,11 @@ def listOfFiles():
     return files
 
 
-def openJson():
+def parse_json():
     # Переносит все json файлы в структуру вида:
     # answers -> intent_name -> items
     # questions -> intent_name -> items
-    files = listOfFiles()
+    files = files_list()
     answers_dict = dict()
     questions_dict = dict()
     global JSON
@@ -41,7 +41,7 @@ def openJson():
     JSON['questions'] = questions_dict
 
 
-def findMatchIntent(message=[]):
+def find_intent(message=[]):
     message.sort()
     matches_dict = dict()
     # Ищем вхождения слов сообщения в вопросы
@@ -62,14 +62,14 @@ def findMatchIntent(message=[]):
     return key
 
 
-def getAnswer(message=[]):
-    response_name = findMatchIntent(message)
+def text_answer(message=[]):
+    response_name = find_intent(message)
     if response_name is not None:
         global JSON
         return random.choice(JSON['questions'][response_name]), response_name
     else:
         return None, None
 
-# openJson()
-# print(findMatchIntent(['пока', 'здоров']))
-# print(getAnswer(['пока', 'здоров']))
+# parse_json()
+# print(find_intent(['пока', 'здоров']))
+# print(text_answer(['пока', 'здоров']))

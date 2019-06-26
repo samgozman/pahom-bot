@@ -1,6 +1,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from pahom import settings
 from pahom import dialogflow
+
 
 def work(tg_token):
     # Подключаемся к ТГ
@@ -8,11 +8,9 @@ def work(tg_token):
 
     # Токен API к Telegram
     dispatcher = updater.dispatcher
-    name_user = ""
     # Обработка команд
 
-
-    def startCommand(bot, update):
+    def start_command(bot, update):
         name_user = update.message.from_user.first_name
 
         PahomStart = ("Здравствуй, " + name_user + "! "
@@ -22,16 +20,14 @@ def work(tg_token):
                     )
         bot.send_message(chat_id=update.message.chat_id, text=PahomStart)
 
-
-    def textMessage(bot, update):
+    def text_message(bot, update):
         name_user = update.message.from_user.first_name
         user_message = str(update.message.text)
-        bot.send_message(chat_id=update.message.chat_id, text=dialogflow.getTextAnswer(user_message, name_user, True))
-
+        bot.send_message(chat_id=update.message.chat_id, text=dialogflow.text_answer(user_message, name_user, True))
 
     # Хендлеры
-    start_command_handler = CommandHandler('start', startCommand)
-    text_message_handler = MessageHandler(Filters.text, textMessage)
+    start_command_handler = CommandHandler('start', start_command)
+    text_message_handler = MessageHandler(Filters.text, text_message)
     # Добавляем хендлеры в диспетчер
     dispatcher.add_handler(start_command_handler)
     dispatcher.add_handler(text_message_handler)
