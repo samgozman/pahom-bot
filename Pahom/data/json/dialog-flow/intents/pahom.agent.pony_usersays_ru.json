@@ -1,0 +1,212 @@
+[
+  {
+    "id": "0f2294b4-ec5e-4f1e-aa2e-d699e769a140",
+    "data": [
+      {
+        "text": "мое маленькое пони",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d460f4a3-7804-4289-87c8-5f11a30038a1",
+    "data": [
+      {
+        "text": "pony",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5025173d-30f2-4bcc-bc0f-ccb0fb64fced",
+    "data": [
+      {
+        "text": "my little pony",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d63c35c4-296c-41a2-903a-512a7718cdfb",
+    "data": [
+      {
+        "text": "mlp",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b5777815-1312-4c07-b9fb-eca072a4bf95",
+    "data": [
+      {
+        "text": "дружба",
+        "alias": "geo-city",
+        "meta": "@sys.geo-city",
+        "userDefined": false
+      },
+      {
+        "text": " это чудо",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "751feb70-032f-4407-8754-148ca9c40127",
+    "data": [
+      {
+        "text": "клоппер",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fe88fdf2-21aa-461b-9c40-e66ecf952925",
+    "data": [
+      {
+        "text": "пони",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a02547f2-f46c-480e-84b2-396f9e664fb9",
+    "data": [
+      {
+        "text": "брони",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ad42eb25-3e22-4e21-a36e-78cc55941363",
+    "data": [
+      {
+        "text": "Спайк",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "93e21d21-628b-41bc-bd89-3e571684e854",
+    "data": [
+      {
+        "text": "Скуталу",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "97d9cead-1f23-41d4-bd6b-5b8408cee536",
+    "data": [
+      {
+        "text": "Крошка Бель",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1b62e3ea-0028-469c-9aa7-5795ecdf2f17",
+    "data": [
+      {
+        "text": "Пинки Пай",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "22b5c131-51ca-45af-8381-563db9981767",
+    "data": [
+      {
+        "text": "Эпплджек",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "510da24e-ce18-4de5-a784-47e87156d950",
+    "data": [
+      {
+        "text": "Флаттершай",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3c3eb2ab-1a9f-47b5-9f8d-1f1ce16307a2",
+    "data": [
+      {
+        "text": "Радуга Дэш",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "789ecb13-f507-4b1e-a171-b6fcb85203e3",
+    "data": [
+      {
+        "text": "рарити",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2b6860d5-ebf6-496a-a560-ab97c6263360",
+    "data": [
+      {
+        "text": "искорка",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

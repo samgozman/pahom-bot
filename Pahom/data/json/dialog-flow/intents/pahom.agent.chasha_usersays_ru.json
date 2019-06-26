@@ -1,0 +1,62 @@
+[
+  {
+    "id": "5d3116fb-d147-4f11-bd4c-d9fb00ac5f33",
+    "data": [
+      {
+        "text": "деревня",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6a9b2360-9fec-4597-bd3c-9ca48a183e84",
+    "data": [
+      {
+        "text": "поселок",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2f89a4ab-0688-483f-95b2-ee9333d36b16",
+    "data": [
+      {
+        "text": "дача",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "eae5d4fb-9a17-4b96-beb0-9437aa04a2fd",
+    "data": [
+      {
+        "text": "чаща",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "13e9f48d-a492-4d5a-b1c1-fc0990952fe9",
+    "data": [
+      {
+        "text": "живешь",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

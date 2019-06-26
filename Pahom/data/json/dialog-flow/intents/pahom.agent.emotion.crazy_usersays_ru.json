@@ -1,0 +1,38 @@
+[
+  {
+    "id": "33c865c5-7abd-4fa8-8461-757cad40c00f",
+    "data": [
+      {
+        "text": "поехавший",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b9296d4e-1082-4483-8560-dc97fce87bbb",
+    "data": [
+      {
+        "text": "бредогенератор",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9283bcd4-0e69-4004-b5f7-17bf0de392c9",
+    "data": [
+      {
+        "text": "бред",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

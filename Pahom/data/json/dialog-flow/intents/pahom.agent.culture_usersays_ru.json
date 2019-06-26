@@ -1,0 +1,146 @@
+[
+  {
+    "id": "d38b50c3-321b-48ce-a331-ef00bb6a533e",
+    "data": [
+      {
+        "text": "рисовать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "847dd5ed-0015-4673-a607-141091e9e93f",
+    "data": [
+      {
+        "text": "читать",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1801644f-2aac-44d7-b425-748ec5f73995",
+    "data": [
+      {
+        "text": "читал",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c1b39134-5aa7-4fc0-abc4-b702b1c2948b",
+    "data": [
+      {
+        "text": "динозавры",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7e219d48-55d8-47fc-aa4b-856650ab70da",
+    "data": [
+      {
+        "text": "сюжет",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b5c89269-8fd6-42f3-89b9-e50ae8c55ca7",
+    "data": [
+      {
+        "text": "музон",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f4f4412c-6995-4e04-acf5-bde6ad3baaf9",
+    "data": [
+      {
+        "text": "художник",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f1fbd610-6970-4491-9dc5-8dc29431be07",
+    "data": [
+      {
+        "text": "песни",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "226967ed-5cf9-4667-9019-4bf79c8afa39",
+    "data": [
+      {
+        "text": "пою",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a7b4ff82-2f11-4641-8b6d-fd0b267a4690",
+    "data": [
+      {
+        "text": "пел",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a5652f51-fac9-4d7e-8215-f1cdd5b2947c",
+    "data": [
+      {
+        "text": "культурно",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ebb051fc-a151-4709-bb31-373a34eaae97",
+    "data": [
+      {
+        "text": "культурный",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

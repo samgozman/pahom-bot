@@ -1,0 +1,224 @@
+[
+  {
+    "id": "bdebeff0-6f41-48bd-896f-e0385aad8428",
+    "data": [
+      {
+        "text": "первая",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      },
+      {
+        "text": " мировая",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "87561d88-f231-4278-a85c-7669d1b8ec1d",
+    "data": [
+      {
+        "text": "третья",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      },
+      {
+        "text": " мировая",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "151e5eaa-e290-47e5-89cc-d1499e95c18b",
+    "data": [
+      {
+        "text": "вытираны",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "66be3bbd-e824-4db3-889b-4e28ff140a4a",
+    "data": [
+      {
+        "text": "ветераны",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0240007d-e54e-4305-9363-c3de5a84e4c9",
+    "data": [
+      {
+        "text": "герои войны",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3ca0f198-3858-429e-9fe2-1dc55656d756",
+    "data": [
+      {
+        "text": "вторая",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      },
+      {
+        "text": " мировая",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1dbcd4df-e270-4c0c-b2e4-68753f173092",
+    "data": [
+      {
+        "text": "война",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e61e508c-2589-4842-874c-7be876425326",
+    "data": [
+      {
+        "text": "фашизм",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f9f5cc24-4134-4235-9ff1-e86609e41919",
+    "data": [
+      {
+        "text": "Тоталитаризм",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8b5b0cfc-3843-4c2e-998a-1067fbebc955",
+    "data": [
+      {
+        "text": "Коммунизм",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "00e6c474-42f3-4840-aa0c-c35349979a85",
+    "data": [
+      {
+        "text": "ленин",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "982fad56-942a-45c8-b44c-fe0cc31da919",
+    "data": [
+      {
+        "text": "сталин",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f7e3e7e7-812e-4fa5-8998-3770a3c434c9",
+    "data": [
+      {
+        "text": "омерика",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "806e5636-75f2-4fcc-beb6-37dd8a3973a5",
+    "data": [
+      {
+        "text": "америка",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "427a4d5d-5fe7-4a0b-8e21-50f33d4a8994",
+    "data": [
+      {
+        "text": "сша",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d4704891-a792-4549-9692-7ac88f8041cd",
+    "data": [
+      {
+        "text": "история",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0ca1c388-4932-44fc-aeb8-7c5719660382",
+    "data": [
+      {
+        "text": "совок",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

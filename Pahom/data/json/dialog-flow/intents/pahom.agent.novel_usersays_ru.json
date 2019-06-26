@@ -1,0 +1,80 @@
+[
+  {
+    "id": "18a17eea-7dcb-468e-beb3-9a91cf053cd5",
+    "data": [
+      {
+        "text": "рассказ",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7f9f6041-4ac7-4be5-ac4d-8c49e7d838ed",
+    "data": [
+      {
+        "text": "тобзи",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1150e02d-7488-4a39-8d85-218b6b2802f9",
+    "data": [
+      {
+        "text": "бесконечное ",
+        "userDefined": false
+      },
+      {
+        "text": "лето",
+        "alias": "date-period",
+        "meta": "@sys.date-period",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0eaf3c16-d7a3-43cb-b05d-3ff92d0cedc0",
+    "data": [
+      {
+        "text": "визуальная",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e1631d3d-f231-40ff-b088-d48fee31c0ba",
+    "data": [
+      {
+        "text": "луна апокалипсиса",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6e9c3e2d-c67a-4f1a-8209-602dd6171a23",
+    "data": [
+      {
+        "text": "новелла",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
