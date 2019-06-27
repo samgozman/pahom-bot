@@ -6,9 +6,11 @@ from pahom import text_search
 from pahom import telegram_bot
 from pahom import jsonloads
 from pahom import vk_bot
+
+
 if __name__ == '__main__':
     # Генерация бредней пахома при старте скрипта (кол-во строк)
-    text_search.generate_model(100000)
+    text_search.generate_model(1000)
 
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()
@@ -18,7 +20,7 @@ if __name__ == '__main__':
 
     t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_1,))
     t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
-    t3 = Thread(target=vk_bot.work, args=())
+    t3 = Thread(target=vk_bot.work, args=(settings.vk_login, settings.vk_pass, settings.vk_app_id, settings.vk_bot_id, settings.vk_public_id_2,))
 
     t1.start()
     t2.start()
