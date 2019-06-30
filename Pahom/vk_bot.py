@@ -1,12 +1,11 @@
 import vk_api
 import random
 import time
+import re
 from pahom import dialogflow
+from pahom import settings
 
-DEEP_POSTS = 3
-DEEP_COMMENTS = 2
-
-
+TOKEN = ""
 # vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
 # vk = vk_session.get_api()
 
@@ -24,73 +23,78 @@ DEEP_COMMENTS = 2
 #        )
 
 
-def work(login, password, app_id, bot_id, public_id):
-
+def connect(login, password, app_id):
     # Аутентификация
     vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=8192)
     vk = vk_session.get_api()
     vk_session.auth()
-    
-    def create_reply_comment(text, post_id, reply_comment, from_id=0):
-        # text - текст юзера
-        if from_id != bot_id:
-            if from_id > 0:
-                user = vk.users.get(user_id=from_id)
-                user_name = '[id{}|{}]'.format(str(from_id), user[0]['first_name'])
-                comment = dialogflow.text_answer(text, user_name, True)
-                if "[id" not in comment:
-                    comment = '[id{}|{}], {}'.format(str(from_id), user[0]['first_name'], comment)
-                return vk.wall.createComment(owner_id=public_id, post_id=post_id,
-                                             reply_to_comment=reply_comment,
-                                             message=comment)
+    return vk
 
-    def create_comment(text, post_id, from_id=0):
-        # text - текст поста
-        if from_id != bot_id:
-            if from_id > 0:
-                user = vk.users.get(user_id=from_id)
-                user_name = '[id{}|{}]'.format(str(from_id), user[0]['first_name'])
-                comment = dialogflow.text_answer(text, user_name, True)
-                # Если так случилось, что пахом ни к кому не обращается, то насильственно добавим обращение в начало
-                if "[id" not in comment:
-                    comment = '[id{}|{}], {}'.format(str(from_id), user[0]['first_name'], comment)
-                return vk.wall.createComment(owner_id=public_id, post_id=post_id, message=comment)
-            else:
-                comment = dialogflow.text_answer(text, "Анон", True)
-                return vk.wall.createComment(owner_id=public_id, post_id=post_id, message=comment)
 
-    # Вечный цикл
-    while True:
-        get_post_from_public = vk.wall.get(count=DEEP_POSTS, owner_id=public_id)
-        if get_post_from_public['items']:
-            for post in get_post_from_public['items']:
-                if post['comments']['count'] == 0:
-                    if random.random() > 0.5:
-                        # post['text'] - текст записи для марковки
-                        try:
-                            create_comment(post['text'], post['id'])
-                        except Exception as e:
-                            print("Error " + str(e))
-                            time.sleep(5)
-                if post['comments']['count'] > 0:
-                        get_comments_from_post = vk.wall.getComments(owner_id=public_id,
-                                                                     post_id=post['id'], offset=0,
-                                                                     count=DEEP_COMMENTS, extended=1,
-                                                                     sort="desc")
-                        if get_comments_from_post['items']:
-                            for comment in get_comments_from_post['items']:
-                                if random.random() > 0.5:
-                                    # comment['text'] - текст комментария для марковки
-                                    try:
-                                        create_reply_comment(comment['text'], post['id'], comment['id'], comment['from_id'])
-                                    except Exception as e:
-                                        print("Error " + str(e))
-                                        time.sleep(5)
-                                if random.random() > 0.5:
-                                    # comment['text'] - текст комментария для марковки
-                                    try:
-                                        create_comment(comment['text'], post['id'], comment['from_id'])
-                                    except Exception as e:
-                                        print("Error " + str(e))
-                                        time.sleep(5)
-        time.sleep(10)
+def create_comment(vk, text, group_id, post_id, from_id=0):
+    # text - текст поста
+    if from_id > 0:
+        user = vk.users.get(user_id=from_id)
+        user_name = '[id{}|{}]'.format(str(from_id), user[0]['first_name'])
+        comment = dialogflow.text_answer(text, user_name, True)
+        # Если так случилось, что пахом ни к кому не обращается, то насильственно добавим обращение в начало
+        if "[id" not in comment:
+            comment = '[id{}|{}], {}'.format(str(from_id), user[0]['first_name'], comment)
+        return vk.wall.createComment(owner_id=group_id, post_id=post_id, message=comment)
+    else:
+        comment = dialogflow.text_answer(text, "Анон", True)
+        return vk.wall.createComment(owner_id=group_id, post_id=post_id, message=comment)
+
+
+def create_post(vk, wall_id):
+    post = dialogflow.text_answer("", 'Уважаемый аноним', True)
+    try:
+        return vk.wall.post(owner_id=wall_id,message=post)
+    except Exception as e:
+        print("VK Error (create_post): " + str(e) + " | With wall id: " + str(wall_id))
+
+
+def get_id(vk, link):
+    # получаем из ссылки на пользователя или группу его id
+    # Убираем из ссылки все что адрес и всё что после занка "?"
+    link_parsed = re.sub(r"(^[^.com]*.com\/)", "", link)
+    link_parsed = re.sub(r"\?.*", "", link_parsed)
+
+    try:
+        group = vk.groups.getById(group_ids=link_parsed)
+        if group[0]['id']:
+            return -1 * group[0]['id']
+    except Exception as e:
+        print("VK Error (get_id): " + str(e) + " | With link: " + link)
+
+    try:
+        user = vk.users.get(user_ids=link_parsed)
+        if user[0]['id']:
+            return user[0]['id']
+    except Exception as e:
+        print("VK Error (get_id): " + str(e) + " | With link: " + link)
+
+
+def action_dump_post(link, count=1):
+    # post - ссылка на пост, count - количество ответов
+    # коннектимся
+    vk = connect(settings.vk_login,settings.vk_pass,settings.vk_app_id)
+    # Из ссылки отбрасываем всё, что не ID поста и группы. Получаем содержимое поста.
+    ids = re.sub('.+?(?=wall)wall', '', link)
+    post = vk.wall.getById(posts=ids)
+    ids = ids.split("_")
+    for i in range(count):
+        create_comment(vk, post[0]['text'], int(ids[0]), int(ids[1]), post[0]['from_id'])
+        if count > 1:
+            time.sleep(10)
+
+
+def action_create_post(link: str, count=1):
+    # Создаем пост в любом месте. Если стена закрыта, то в предложку (группа)
+    vk = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id)
+    # Из ссылки отбрасываем всё, что не ID поста и группы. Получаем содержимое поста.
+    wall_id = get_id(vk, link)
+    for i in range(count):
+        create_post(vk, wall_id)
+        if count > 1:
+            time.sleep(10)
