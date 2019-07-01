@@ -1,5 +1,5 @@
 import logging
-import re
+import multiprocessing
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from pahom import dialogflow
 from pahom import settings
@@ -16,8 +16,28 @@ def check_admin_privileges(bot,update):
     if name_user in settings.admin:
         return True
     else:
-        bot.send_message(chat_id=update.message.chat_id, text=dialogflow.text_answer("топология", name_user, True))
         return False
+
+
+def admin_commands(user_message: str):
+    # Выполняем админские комманды из ТГ над ВК ботом
+    if ">>" in user_message:
+        ms = user_message.split(" ")
+        if "change status" in user_message:
+            # Проверка на наличие аргумента. Если нету, то дефолт
+            if len(ms) < 4 or ms[3] == "":
+                ms.append(1)
+            vk_bot.action_change_status(int(ms[3]))
+        elif "reply to comment" in user_message:
+            vk_bot.action_reply_to_comment(ms[4])
+        elif "create post" in user_message:
+            if len(ms) < 5 or ms[4] == "":
+                ms.append(1)
+            vk_bot.action_create_post(ms[3], int(ms[4]))
+        elif "reply to post" in user_message:
+            if len(ms) < 6 or ms[5] == "":
+                ms.append(1)
+            vk_bot.action_reply_to_post(ms[4], int(ms[5]))
 
 
 def work(tg_token):
@@ -42,7 +62,10 @@ def work(tg_token):
         # Функция считывания сообщеня и отправки ответа
         name_user = update.message.from_user.first_name
         user_message = str(update.message.text)
-
+        if check_admin_privileges(bot, update):
+            # Выделяем отдельный процесс для ВК комманд
+            t = multiprocessing.Process(target=admin_commands, args=(user_message,))
+            t.start()
         bot.send_message(chat_id=update.message.chat_id, text=dialogflow.text_answer(user_message, name_user, True))
 
     def error(update, context):
@@ -50,17 +73,20 @@ def work(tg_token):
         """Log Errors caused by Updates."""
         logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+    def help_command(bot, update):
+        if check_admin_privileges(bot, update):
+            pahom_help = """
+Доступные админские команды:
+>> change status ЧИСЛО - изменяет статус аккаунта раз в 5 секунд ЧИСЛО раз. Если ЧИСЛО пустое, то изменяет 1 раз.
+>> reply to post ССЫЛКА ЧИСЛО - отвечает на пост по ССЫЛКА ЧИСЛО раз. Ссылка вида https://vk.com/wall-183833688_517. Если ЧИСЛО пустое, то отвечает 1 раз.
+>> create post ССЫЛКА ЧИСЛО - создаёт пост по ССЫЛКА (будь то паблик или человек) ЧИСЛО раз. Ссылка вида https://vk.com/wempire_dimstona. Если ЧИСЛО пустое, то создаёт 1 раз.
+>> reply to comment ССЫЛКА - отвечает на коммент по ССЫЛКА. Ссылка вида https://vk.com/wall-183833688_490?reply=492&thread=491
+            """
+            bot.send_message(chat_id=update.message.chat_id, text=pahom_help)
+
+
     # Хендлеры
     updater.dispatcher.add_error_handler(error)
-
-    def help_command(bot, update):
-        # Функция вызова стартовой команды
-        name_user = update.message.from_user.first_name
-        pahom_help = "Help"
-        if check_admin_privileges(bot,update):
-            # vk_bot.action_dump_post("https://vk.com/club183833688?w=wall-183833688_483")
-            vk_bot.action_create_post("https://vk.com/dveberezy")
-        bot.send_message(chat_id=update.message.chat_id, text=pahom_help)
 
     start_command_handler = CommandHandler('start', start_command)
     help_command_handler = CommandHandler('help', help_command)
