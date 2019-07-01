@@ -10,22 +10,21 @@ from pahom import vk_bot
 
 if __name__ == '__main__':
     # Генерация бредней пахома при старте скрипта (кол-во строк)
-    text_search.generate_model(1000)
+    text_search.generate_model(100000)
 
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()
 
     # telegram_bot.work(settings.telegram_API_token_1)
     #
-
+    # вызываем генерацию ключа api для вк.
     t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_1,))
     t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
-    t3 = Thread(target=vk_bot.work, args=(settings.vk_login, settings.vk_pass, settings.vk_app_id, settings.vk_bot_id, settings.vk_public_id_2,))
 
     t1.start()
     t2.start()
-    t3.start()
+    # t3.start()
 
     t1.join()
     t2.join()
-    t3.join()
+    # t3.join()

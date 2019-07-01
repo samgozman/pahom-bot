@@ -1,11 +1,9 @@
 import vk_api
-import random
 import time
 import re
 from pahom import dialogflow
 from pahom import settings
 
-TOKEN = ""
 # vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
 # vk = vk_session.get_api()
 
@@ -23,12 +21,16 @@ TOKEN = ""
 #        )
 
 
+# Коннектиться в глобалке, если в try ошибка, то вызвать connect.
 def connect(login, password, app_id):
     # Аутентификация
-    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=8192)
+    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9216)
     vk = vk_session.get_api()
     vk_session.auth()
     return vk
+
+
+VK = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id)
 
 
 def create_comment(vk, text, group_id, post_id, from_id=0):
@@ -75,26 +77,64 @@ def get_id(vk, link):
         print("VK Error (get_id): " + str(e) + " | With link: " + link)
 
 
-def action_dump_post(link, count=1):
+def action_reply_to_post(link, count=1):
     # post - ссылка на пост, count - количество ответов
     # коннектимся
-    vk = connect(settings.vk_login,settings.vk_pass,settings.vk_app_id)
+    global VK
     # Из ссылки отбрасываем всё, что не ID поста и группы. Получаем содержимое поста.
-    ids = re.sub('.+?(?=wall)wall', '', link)
-    post = vk.wall.getById(posts=ids)
+    ids = re.sub(r'.+?(?=wall)wall', '', link)
+    post = VK.wall.getById(posts=ids)
     ids = ids.split("_")
     for i in range(count):
-        create_comment(vk, post[0]['text'], int(ids[0]), int(ids[1]), post[0]['from_id'])
+        create_comment(VK, post[0]['text'], int(ids[0]), int(ids[1]), post[0]['from_id'])
         if count > 1:
             time.sleep(10)
 
 
 def action_create_post(link: str, count=1):
     # Создаем пост в любом месте. Если стена закрыта, то в предложку (группа)
-    vk = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id)
+    global VK
     # Из ссылки отбрасываем всё, что не ID поста и группы. Получаем содержимое поста.
-    wall_id = get_id(vk, link)
+    wall_id = get_id(VK, link)
     for i in range(count):
-        create_post(vk, wall_id)
+        create_post(VK, wall_id)
         if count > 1:
             time.sleep(10)
+
+
+def action_reply_to_comment(link):
+    # коннектимся
+    global VK
+    # Из ссылки отбрасываем всё, что не ID поста, группы и реплая
+    link_without_http = re.sub(r'.+?(?=wall)wall', '', link)
+    link_without_thread = re.sub(r"&.*","",link_without_http)
+    # сохраняем реплай отдельно
+    link_reply = re.sub(r'.*(?=reply)reply=', '', link_without_thread)
+    # Удаляем реплай
+    link_parsed_ids = re.sub(r"\?.*", "", link_without_thread).split('_')
+    try:
+        comment = VK.wall.getComment(owner_id=link_parsed_ids[0], comment_id=link_reply, extended=1)
+    except Exception as e:
+        print("VK Error (action_reply_to_comment): " + str(e) + " | With link: " + link)
+    # Парсим коммент
+    comment_text = comment['items'][0]['text']
+    user_name = comment['profiles'][0]['first_name']
+    user_id = comment['profiles'][0]['id']
+
+    # Reply со сгенерированной марковкой на основе текста
+    message = '[id{}|{}], {}'.format(str(user_id), user_name, dialogflow.text_answer(comment_text, user_name))
+    try:
+        VK.wall.createComment(owner_id=link_parsed_ids[0], post_id=link_parsed_ids[1], reply_to_comment=link_reply, message=message)
+    except Exception as e:
+        print("VK Error (action_reply_to_comment): " + str(e) + " | With link: " + link)
+
+
+def action_change_status(count=1):
+    global VK
+    try:
+        for i in range(count):
+            VK.status.set(text=dialogflow.text_answer("", "Анон"))
+            if count > 1:
+                time.sleep(5)
+    except Exception as e:
+        print("VK Error (action_change_status): ".join(str(e)))
