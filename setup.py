@@ -3,7 +3,7 @@ from os.path import join, dirname
 
 setup(
     name='pahom',
-    version='0.2.1',
+    version='0.2.3',
     packages=['pahom'],
     install_requires=[
         'python-telegram-bot',
@@ -21,6 +21,6 @@ setup(
     # to setup: pip3 install pahom-0.1.tar.gzc
     # to update: pip3 install pahom-0.1.tar.gzc --upgrade
     # to run this shit use:
-    # python3 -m pahom.__init__
+    # python3 -m pahom
     # to run in backgroud use bash nohup
 )

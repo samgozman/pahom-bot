@@ -22,11 +22,11 @@ from pahom import settings
 
 
 # Коннектиться в глобалке, если в try ошибка, то вызвать connect.
-def connect(login, password, app_id):
+def connect(login, password, app_id, reauth=False):
     # Аутентификация
     vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9216)
     vk = vk_session.get_api()
-    vk_session.auth()
+    vk_session.auth(reauth=reauth)
     return vk
 
 
@@ -135,6 +135,6 @@ def action_change_status(count=1):
         for i in range(count):
             VK.status.set(text=dialogflow.text_answer("", "Анон"))
             if count > 1:
-                time.sleep(5)
+                time.sleep(10)
     except Exception as e:
-        print("VK Error (action_change_status): ".join(str(e)))
+        print("VK Error (action_change_status): " + str(e))
