@@ -44,7 +44,8 @@ def admin_commands(user_message: str, bot, update):
             vk_bot.action_reply_to_photo(ms[4], int(ms[5]))
         elif "reconnect" in user_message or "подключение" in user_message:
             vk_bot.reconnect()
-        bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
+        # Баг - пытается отправить, когда задача уже завершена
+        # bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
 
 
 def work(tg_token):
