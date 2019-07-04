@@ -38,8 +38,12 @@ def admin_commands(user_message: str, bot, update):
             if len(ms) < 6 or ms[5] == "":
                 ms.append(1)
             vk_bot.action_reply_to_post(ms[4], int(ms[5]))
+        elif "reply to photo" in user_message or "ответить на фото" in user_message:
+            if len(ms) < 6 or ms[5] == "":
+                ms.append(1)
+            vk_bot.action_reply_to_photo(ms[4], int(ms[5]))
         elif "reconnect" in user_message or "подключение" in user_message:
-            vk_bot.VK = vk_bot.connect(settings.vk_login, settings.vk_pass, settings.vk_app_id, reauth=True)
+            vk_bot.reconnect()
         bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
 
 

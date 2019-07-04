@@ -24,13 +24,18 @@ from pahom import settings
 # Коннектиться в глобалке, если в try ошибка, то вызвать connect.
 def connect(login, password, app_id, reauth=False):
     # Аутентификация
-    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9216)
+    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9220)
     vk = vk_session.get_api()
     vk_session.auth(reauth=reauth)
     return vk
 
 
 VK = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id)
+
+
+def reconnect():
+    global VK
+    VK = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id, True)
 
 
 def create_comment(vk, text, group_id, post_id, from_id=0):
@@ -46,6 +51,11 @@ def create_comment(vk, text, group_id, post_id, from_id=0):
     else:
         comment = dialogflow.text_answer(text, "Анон", True)
         return vk.wall.createComment(owner_id=group_id, post_id=post_id, message=comment)
+
+
+def create_photos_comment(vk, text, user_id, photo_id, user_name="Аноним"):
+    comment = dialogflow.text_answer(text, user_name, True)
+    vk.photos.createComment(owner_id=user_id, photo_id=photo_id, message=comment)
 
 
 def create_post(vk, wall_id):
@@ -127,6 +137,27 @@ def action_reply_to_comment(link):
         VK.wall.createComment(owner_id=link_parsed_ids[0], post_id=link_parsed_ids[1], reply_to_comment=link_reply, message=message)
     except Exception as e:
         print("VK Error (action_reply_to_comment): " + str(e) + " | With link: " + link)
+
+
+def action_reply_to_photo(link, count=1):
+    # коннектимся
+    global VK
+    # Из ссылки отбрасываем всё, что не ID поста, группы и реплая
+    link_without_http = re.sub(r'.+?(?=z)z=photo', '', link)
+    link_without_trash = re.sub(r"%.*","",link_without_http)
+    photo = VK.photos.getById(photos=link_without_trash)
+    user_id = photo[0]['owner_id']
+    photo_text = photo[0]['text']
+    photo_id = photo[0]['id']
+    if user_id > 0:
+        user_name = VK.users.get(user_id=user_id)[0]['first_name']
+    else:
+        user_id = int(user_id) * -1
+        user_name = VK.groups.getById(group_id=user_id)[0]['name']
+    for i in range(count):
+        create_photos_comment(VK, photo_text, user_id, photo_id, user_name)
+        if count > 1:
+            time.sleep(10)
 
 
 def action_change_status(count=1):
