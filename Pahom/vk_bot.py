@@ -1,8 +1,10 @@
 import vk_api
 import time
 import re
+import random
 from pahom import dialogflow
 from pahom import settings
+from pahom import telegram_bot
 
 # vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
 # vk = vk_session.get_api()
@@ -21,16 +23,58 @@ from pahom import settings
 #        )
 
 
+def captcha_handler(captcha):
+    """ При возникновении капчи вызывается эта функция и ей передается объект
+        капчи. Через метод get_url можно получить ссылку на изображение.
+        Через метод try_again можно попытаться отправить запрос с кодом капчи
+    """
+
+    key = input("Enter captcha code {0}: ".format(captcha.get_url())).strip()
+
+    # Пробуем снова отправить запрос с капчей
+    return captcha.try_again(key)
+
+
 # Коннектиться в глобалке, если в try ошибка, то вызвать connect.
 def connect(login, password, app_id, reauth=False):
     # Аутентификация
-    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9220)
+    vk_session = vk_api.VkApi(login, password, app_id=app_id, scope=9220, captcha_handler=captcha_handler)
     vk = vk_session.get_api()
     vk_session.auth(reauth=reauth)
     return vk
 
 
 VK = connect(settings.vk_login, settings.vk_pass, settings.vk_app_id)
+
+
+def wall_delete_postponed(post_ids):
+    global VK
+    for post in post_ids:
+        VK.wall.delete(post_id=post)
+        if len(post_ids) > 1:
+            time.sleep(0.333)
+
+
+def get_wall_postponed():
+    global VK
+    posts = VK.wall.get(filter='postponed', count=100)['items']
+    post_ids = []
+    for post in posts:
+        post_ids.append(post['id'])
+    return wall_delete_postponed(post_ids)
+
+
+def generate_wall(count=1):
+    global VK
+    get_wall_postponed()
+    current_time = time.time()
+    for i in range(count):
+        post_time = current_time + random.randint(0, 43200)
+        current_time += 43200
+        text = dialogflow.text_answer("", "Анон", True)
+        VK.wall.post(publish_date=post_time, message=text)
+        if count > 1:
+            time.sleep(0.333)
 
 
 def reconnect():
@@ -73,16 +117,22 @@ def get_id(vk, link):
     link_parsed = re.sub(r"\?.*", "", link_parsed)
 
     try:
-        group = vk.groups.getById(group_ids=link_parsed)
-        if group[0]['id']:
-            return -1 * group[0]['id']
+        group = vk.groups.getById(group_ids=link_parsed, fields='can_post')
+        if group[0]['can_post'] ==1:
+            if group[0]['id']:
+                return -1 * group[0]['id']
+        else:
+            print('Нельзя публиковать')
     except Exception as e:
         print("VK Error (get_id): " + str(e) + " | With link: " + link)
 
     try:
-        user = vk.users.get(user_ids=link_parsed)
-        if user[0]['id']:
-            return user[0]['id']
+        user = vk.users.get(user_ids=link_parsed, fields='can_post')
+        if user[0]['can_post'] == 1:
+            if user[0]['id']:
+                return user[0]['id']
+        else:
+            print('Нельзя публиковать')
     except Exception as e:
         print("VK Error (get_id): " + str(e) + " | With link: " + link)
 
