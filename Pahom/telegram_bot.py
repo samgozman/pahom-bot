@@ -9,8 +9,11 @@ from pahom import vk_bot
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# ТК телеграмм является контрольной панелью для управления ВК ботом, то и создадим его здесь
+vkbot = vk_bot.Bot(settings.vk_login, settings.vk_pass, settings.vk_app_id)
 
-def check_admin_privileges(bot,update):
+
+def check_admin_privileges(bot, update):
     name_user = update.message.from_user.username
     # Проверяем есть ли юзер в админском составе. Если да, то выдать меню. Нет - выдать марковку))
     if name_user in settings.admin:
@@ -19,7 +22,7 @@ def check_admin_privileges(bot,update):
         return False
 
 
-def admin_commands(user_message: str, bot, update):
+def admin_commands(user_message: str, chat_id, bot, update):
     # Выполняем админские комманды из ТГ над ВК ботом
     if "%%" in user_message:
         ms = user_message.split(" ")
@@ -27,23 +30,28 @@ def admin_commands(user_message: str, bot, update):
             # Проверка на наличие аргумента. Если нету, то дефолт
             if len(ms) < 4 or ms[3] == "":
                 ms.append(1)
-            vk_bot.action_change_status(int(ms[3]))
+            vkbot.action_change_status(int(ms[3]))
         elif "reply to comment" in user_message or "ответить на коммент" in user_message:
-            vk_bot.action_reply_to_comment(ms[4])
+            vkbot.action_reply_to_comment(ms[4])
         elif "create post" in user_message or "создать пост" in user_message:
             if len(ms) < 5 or ms[4] == "":
                 ms.append(1)
-            vk_bot.action_create_post(ms[3], int(ms[4]))
+            vkbot.action_create_post(ms[3], int(ms[4]))
         elif "reply to post" in user_message or "ответить на пост" in user_message:
             if len(ms) < 6 or ms[5] == "":
                 ms.append(1)
-            vk_bot.action_reply_to_post(ms[4], int(ms[5]))
+            vkbot.action_reply_to_post(ms[4], int(ms[5]))
         elif "reply to photo" in user_message or "ответить на фото" in user_message:
             if len(ms) < 6 or ms[5] == "":
                 ms.append(1)
-            vk_bot.action_reply_to_photo(ms[4], int(ms[5]))
+            vkbot.action_reply_to_photo(ms[4], int(ms[5]))
         elif "reconnect" in user_message or "подключение" in user_message:
-            vk_bot.reconnect()
+            vkbot.reconnect()
+        elif "generate wall" in user_message or "сгенерировать стену" in user_message:
+            if len(ms) < 4 or ms[3] == "":
+                ms.append(1)
+            vkbot.generate_wall(int(ms[3]))
+            bot.send_message(chat_id=chat_id, text="Закончил задачу")
         # Баг - пытается отправить, когда задача уже завершена
         # bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
 
@@ -72,7 +80,7 @@ def work(tg_token):
         user_message = str(update.message.text)
         if check_admin_privileges(bot, update):
             # Выделяем отдельный процесс для ВК комманд
-            t = Process(target=admin_commands, args=(user_message, bot, update))
+            t = Process(target=admin_commands, args=(user_message, update.message.chat_id, bot, update))
             t.start()
         bot.send_message(chat_id=update.message.chat_id, text=dialogflow.text_answer(user_message, name_user, True))
 
@@ -89,10 +97,11 @@ def work(tg_token):
 %% ответить на пост ССЫЛКА ЧИСЛО - отвечает на пост по ССЫЛКА ЧИСЛО раз. Ссылка вида https://vk.com/wall-183833688_517. Если ЧИСЛО пустое, то отвечает 1 раз. (или reply to post)
 %% создать пост ССЫЛКА ЧИСЛО - создаёт пост по ССЫЛКА (будь то паблик или человек) ЧИСЛО раз. Ссылка вида https://vk.com/wempire_dimstona. Если ЧИСЛО пустое, то создаёт 1 раз. (или create post)
 %% ответить на коммент ССЫЛКА - отвечает на коммент по ССЫЛКА. Ссылка вида https://vk.com/wall-183833688_490?reply=492&thread=491 (или reply to comment)
+%% ответить на фото ССЫЛКА - отвечает на коммент по ССЫЛКА. (или reply to photo)
 %% подключение - выполнить переподключение к ВК (или reconnect)
+%% сгенерировать стену ЧИСЛО - удаляет старые отложенные посты и генерит новые
             """
             bot.send_message(chat_id=update.message.chat_id, text=pahom_help)
-
 
     # Хендлеры
     updater.dispatcher.add_error_handler(error)
