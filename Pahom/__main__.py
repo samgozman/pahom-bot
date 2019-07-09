@@ -5,12 +5,11 @@ from pahom import settings
 from pahom import text_search
 from pahom import telegram_bot
 from pahom import jsonloads
-from pahom import vk_bot
 
 
 if __name__ == '__main__':
     # Генерация бредней пахома при старте скрипта (кол-во строк)
-    text_search.generate_model(100000)
+    text_search.generate_model(1000)
 
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()
@@ -18,13 +17,13 @@ if __name__ == '__main__':
     # telegram_bot.work(settings.telegram_API_token_1)
     #
     # вызываем генерацию ключа api для вк.
-    t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_1,))
-    t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
+    t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_3,))
+    # t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
 
     t1.start()
-    t2.start()
+    # t2.start()
     # t3.start()
 
     t1.join()
-    t2.join()
+    # t2.join()
     # t3.join()

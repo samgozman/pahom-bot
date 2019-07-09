@@ -2,6 +2,7 @@ import vk_api
 import time
 import re
 import random
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from pahom import dialogflow
 
 # vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
@@ -25,20 +26,41 @@ class Bot:
     """
         Класс создания ВК бота. В него необходимо передать логин (телефонный номер), пароль и id приложения
     """
-    def __init__(self, login, password, app_id):
+    def __init__(self, login, password, app_id, tg_token):
         """Constructor"""
         self.login = login
         self.password = password
         self.app_id = app_id
+        self.tg_token = tg_token
+        self.tg_chat_id = None
+        self.captcha_key = None
         self.VK = self.connect()
+
+    def tg_connect(self):
+        updater = Updater(token=self.tg_token)
+        dispatcher = updater.dispatcher
+        return dispatcher, updater
+
+    def tg_send_message(self, dispatcher, text):
+        dispatcher.bot.send_message(chat_id=self.tg_chat_id, text=text)
 
     def captcha_handler(self, captcha):
         """ При возникновении капчи вызывается эта функция и ей передается объект
             капчи. Через метод get_url можно получить ссылку на изображение.
             Через метод try_again можно попытаться отправить запрос с кодом капчи
         """
-
+        tg_dispatcher, updater = self.tg_connect()
+        tg_text = "Enter captcha code {0}: ".format(captcha.get_url())
+        self.tg_send_message(tg_dispatcher, tg_text)
+        # Ждём ответа юзера
+        key = None
+        self.captcha_key = None
+        while self.captcha_key is None:
+            if self.captcha_key is not None:
+                key = self.captcha_key
+        self.captcha_key = None
         key = input("Enter captcha code {0}: ".format(captcha.get_url())).strip()
+        print()
 
         # Пробуем снова отправить запрос с капчей
         return captcha.try_again(key)

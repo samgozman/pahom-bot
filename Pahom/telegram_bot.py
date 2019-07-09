@@ -9,52 +9,6 @@ from pahom import vk_bot
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# ТК телеграмм является контрольной панелью для управления ВК ботом, то и создадим его здесь
-vkbot = vk_bot.Bot(settings.vk_login, settings.vk_pass, settings.vk_app_id)
-
-
-def check_admin_privileges(bot, update):
-    name_user = update.message.from_user.username
-    # Проверяем есть ли юзер в админском составе. Если да, то выдать меню. Нет - выдать марковку))
-    if name_user in settings.admin:
-        return True
-    else:
-        return False
-
-
-def admin_commands(user_message: str, chat_id, bot, update):
-    # Выполняем админские комманды из ТГ над ВК ботом
-    if "%%" in user_message:
-        ms = user_message.split(" ")
-        if "change status" in user_message or "изменить статус" in user_message:
-            # Проверка на наличие аргумента. Если нету, то дефолт
-            if len(ms) < 4 or ms[3] == "":
-                ms.append(1)
-            vkbot.action_change_status(int(ms[3]))
-        elif "reply to comment" in user_message or "ответить на коммент" in user_message:
-            vkbot.action_reply_to_comment(ms[4])
-        elif "create post" in user_message or "создать пост" in user_message:
-            if len(ms) < 5 or ms[4] == "":
-                ms.append(1)
-            vkbot.action_create_post(ms[3], int(ms[4]))
-        elif "reply to post" in user_message or "ответить на пост" in user_message:
-            if len(ms) < 6 or ms[5] == "":
-                ms.append(1)
-            vkbot.action_reply_to_post(ms[4], int(ms[5]))
-        elif "reply to photo" in user_message or "ответить на фото" in user_message:
-            if len(ms) < 6 or ms[5] == "":
-                ms.append(1)
-            vkbot.action_reply_to_photo(ms[4], int(ms[5]))
-        elif "reconnect" in user_message or "подключение" in user_message:
-            vkbot.reconnect()
-        elif "generate wall" in user_message or "сгенерировать стену" in user_message:
-            if len(ms) < 4 or ms[3] == "":
-                ms.append(1)
-            vkbot.generate_wall(int(ms[3]))
-            bot.send_message(chat_id=chat_id, text="Закончил задачу")
-        # Баг - пытается отправить, когда задача уже завершена
-        # bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
-
 
 def work(tg_token):
     # Подключаемся к ТГ
@@ -63,6 +17,53 @@ def work(tg_token):
     # Токен API к Telegram
     dispatcher = updater.dispatcher
     # Обработка команд
+
+    # ТК телеграмм является контрольной панелью для управления ВК ботом, то и создадим его здесь
+    vkbot = vk_bot.Bot(settings.vk_login, settings.vk_pass, settings.vk_app_id, tg_token)
+
+    def check_admin_privileges(bot, update):
+        name_user = update.message.from_user.username
+        # Проверяем есть ли юзер в админском составе. Если да, то выдать меню. Нет - выдать марковку))
+        if name_user in settings.admin:
+            return True
+        else:
+            return False
+
+    def admin_commands(user_message: str, chat_id, bot, update):
+        # Выполняем админские комманды из ТГ над ВК ботом
+        if "%%" in user_message:
+            ms = user_message.split(" ")
+            # Передаём chat_id в ВК бота, чтобы он знал куда отправить каптчу итд.
+            vkbot.tg_chat_id = chat_id
+            
+            if "change status" in user_message or "изменить статус" in user_message:
+                # Проверка на наличие аргумента. Если нету, то дефолт
+                if len(ms) < 4 or ms[3] == "":
+                    ms.append(1)
+                vkbot.action_change_status(int(ms[3]))
+            elif "reply to comment" in user_message or "ответить на коммент" in user_message:
+                vkbot.action_reply_to_comment(ms[4])
+            elif "create post" in user_message or "создать пост" in user_message:
+                if len(ms) < 5 or ms[4] == "":
+                    ms.append(1)
+                vkbot.action_create_post(ms[3], int(ms[4]))
+            elif "reply to post" in user_message or "ответить на пост" in user_message:
+                if len(ms) < 6 or ms[5] == "":
+                    ms.append(1)
+                vkbot.action_reply_to_post(ms[4], int(ms[5]))
+            elif "reply to photo" in user_message or "ответить на фото" in user_message:
+                if len(ms) < 6 or ms[5] == "":
+                    ms.append(1)
+                vkbot.action_reply_to_photo(ms[4], int(ms[5]))
+            elif "reconnect" in user_message or "подключение" in user_message:
+                vkbot.reconnect()
+            elif "generate wall" in user_message or "сгенерировать стену" in user_message:
+                if len(ms) < 4 or ms[3] == "":
+                    ms.append(1)
+                vkbot.generate_wall(int(ms[3]))
+                bot.send_message(chat_id=chat_id, text="Закончил задачу")
+            # Баг - пытается отправить, когда задача уже завершена
+            # bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
 
     def start_command(bot, update):
         # Функция вызова стартовой команды
@@ -78,6 +79,8 @@ def work(tg_token):
         # Функция считывания сообщеня и отправки ответа
         name_user = update.message.from_user.first_name
         user_message = str(update.message.text)
+
+        vkbot.captcha_key = user_message
         if check_admin_privileges(bot, update):
             # Выделяем отдельный процесс для ВК комманд
             t = Process(target=admin_commands, args=(user_message, update.message.chat_id, bot, update))
