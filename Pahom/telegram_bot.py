@@ -1,4 +1,5 @@
 import logging
+import os
 from multiprocessing import Process, Queue
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from pahom import dialogflow
@@ -8,9 +9,6 @@ from pahom import vk_bot
 # Вывод лога ошибок
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# ТК телеграмм является контрольной панелью для управления ВК ботом, то и создадим его здесь
-vkbot = vk_bot.Bot(settings.vk_login, settings.vk_pass, settings.vk_app_id)
 
 
 def check_admin_privileges(bot, update):
@@ -22,36 +20,54 @@ def check_admin_privileges(bot, update):
         return False
 
 
+def tg_connect(reauth=False):
+    # ТК телеграмм является контрольной панелью для управления ВК ботом, то и создадим его здесь
+    # Удаляем файл со старыми настройками
+    vk_settings_file = str(os.path.dirname(settings.THIS_FOLDER)) + "/vk_config.v2.json"
+    if os.path.isfile(vk_settings_file):
+        os.remove(vk_settings_file)
+    return vk_bot.Bot(settings.vk_login, settings.vk_pass, settings.vk_app_id, reauth)
+
+
+vkbot = tg_connect()
+
+
 def admin_commands(user_message: str, chat_id, bot, update):
+    global vkbot
     # Выполняем админские комманды из ТГ над ВК ботом
     if "%%" in user_message:
         ms = user_message.split(" ")
-        if "change status" in user_message or "изменить статус" in user_message:
-            # Проверка на наличие аргумента. Если нету, то дефолт
-            if len(ms) < 4 or ms[3] == "":
-                ms.append(1)
-            vkbot.action_change_status(int(ms[3]))
-        elif "reply to comment" in user_message or "ответить на коммент" in user_message:
-            vkbot.action_reply_to_comment(ms[4])
-        elif "create post" in user_message or "создать пост" in user_message:
-            if len(ms) < 5 or ms[4] == "":
-                ms.append(1)
-            vkbot.action_create_post(ms[3], int(ms[4]))
-        elif "reply to post" in user_message or "ответить на пост" in user_message:
-            if len(ms) < 6 or ms[5] == "":
-                ms.append(1)
-            vkbot.action_reply_to_post(ms[4], int(ms[5]))
-        elif "reply to photo" in user_message or "ответить на фото" in user_message:
-            if len(ms) < 6 or ms[5] == "":
-                ms.append(1)
-            vkbot.action_reply_to_photo(ms[4], int(ms[5]))
-        elif "reconnect" in user_message or "подключение" in user_message:
-            vkbot.reconnect()
-        elif "generate wall" in user_message or "сгенерировать стену" in user_message:
-            if len(ms) < 4 or ms[3] == "":
-                ms.append(1)
-            vkbot.generate_wall(int(ms[3]))
-            bot.send_message(chat_id=chat_id, text="Закончил задачу")
+        try:
+            if "change status" in user_message or "изменить статус" in user_message:
+                # Проверка на наличие аргумента. Если нету, то дефолт
+                if len(ms) < 4 or ms[3] == "":
+                    ms.append(1)
+                vkbot.action_change_status(int(ms[3]))
+            elif "reply to comment" in user_message or "ответить на коммент" in user_message:
+                vkbot.action_reply_to_comment(ms[4])
+            elif "create post" in user_message or "создать пост" in user_message:
+                if len(ms) < 5 or ms[4] == "":
+                    ms.append(1)
+                vkbot.action_create_post(ms[3], int(ms[4]))
+            elif "reply to post" in user_message or "ответить на пост" in user_message:
+                if len(ms) < 6 or ms[5] == "":
+                    ms.append(1)
+                vkbot.action_reply_to_post(ms[4], int(ms[5]))
+            elif "reply to photo" in user_message or "ответить на фото" in user_message:
+                if len(ms) < 6 or ms[5] == "":
+                    ms.append(1)
+                vkbot.action_reply_to_photo(ms[4], int(ms[5]))
+            elif "generate wall" in user_message or "сгенерировать стену" in user_message:
+                if len(ms) < 4 or ms[3] == "":
+                    ms.append(1)
+                vkbot.generate_wall(int(ms[3]))
+                bot.send_message(chat_id=chat_id, text="Закончил задачу")
+            elif "reconnect" in user_message or "подключение" in user_message:
+                vkbot = tg_connect(True)
+        except Exception as e:
+            print("VK Error in TG (admin_commands): " + str(e) + " | Trying to reconnect ")
+            vkbot = tg_connect(True)
+            bot.send_message(chat_id=chat_id, text="Всвязи с ошибкой выполнил реконнект. Попробуй снова!")
         # Баг - пытается отправить, когда задача уже завершена
         # bot.send_message(chat_id=update.message.chat_id, text="Закончил задачу")
 

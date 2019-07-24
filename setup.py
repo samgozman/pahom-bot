@@ -3,7 +3,7 @@ from os.path import join, dirname
 
 setup(
     name='pahom',
-    version='0.2.4',
+    version='0.2.6',
     packages=['pahom'],
     install_requires=[
         'python-telegram-bot',

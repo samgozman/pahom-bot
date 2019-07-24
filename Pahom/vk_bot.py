@@ -25,12 +25,13 @@ class Bot:
     """
         Класс создания ВК бота. В него необходимо передать логин (телефонный номер), пароль и id приложения
     """
-    def __init__(self, login, password, app_id):
+    def __init__(self, login, password, app_id, reauth=False):
         """Constructor"""
         self.login = login
         self.password = password
         self.app_id = app_id
-        self.VK = self.connect()
+        self.reauth = reauth
+        self.VK = self.connect(self.reauth)
 
     def captcha_handler(self, captcha):
         """ При возникновении капчи вызывается эта функция и ей передается объект
@@ -43,7 +44,7 @@ class Bot:
         # Пробуем снова отправить запрос с капчей
         return captcha.try_again(key)
 
-    def connect(self, reauth=False):
+    def connect(self, reauth):
         # Коннектиться в глобалке, если в try ошибка, то вызвать connect.
         # Аутентификация
         vk_session = vk_api.VkApi(self.login, self.password, app_id=self.app_id, scope=9220, captcha_handler=self.captcha_handler)
@@ -162,17 +163,14 @@ class Bot:
         link_parsed_ids = re.sub(r"\?.*", "", link_without_thread).split('_')
         try:
             comment = self.VK.wall.getComment(owner_id=link_parsed_ids[0], comment_id=link_reply, extended=1)
-        except Exception as e:
-            print("VK Error (action_reply_to_comment): " + str(e) + " | With link: " + link)
-        # Парсим коммент
-        comment_text = comment['items'][0]['text']
-        user_name = comment['profiles'][0]['first_name']
-        user_id = comment['profiles'][0]['id']
-
-        # Reply со сгенерированной марковкой на основе текста
-        message = '[id{}|{}], {}'.format(str(user_id), user_name, dialogflow.text_answer(comment_text, user_name))
-        try:
-            self.VK.wall.createComment(owner_id=link_parsed_ids[0], post_id=link_parsed_ids[1], reply_to_comment=link_reply, message=message)
+            # Парсим коммент
+            comment_text = comment['items'][0]['text']
+            user_name = comment['profiles'][0]['first_name']
+            user_id = comment['profiles'][0]['id']
+            # Reply со сгенерированной марковкой на основе текста
+            message = '[id{}|{}], {}'.format(str(user_id), user_name, dialogflow.text_answer(comment_text, user_name))
+            self.VK.wall.createComment(owner_id=link_parsed_ids[0], post_id=link_parsed_ids[1],
+                                       reply_to_comment=link_reply, message=message)
         except Exception as e:
             print("VK Error (action_reply_to_comment): " + str(e) + " | With link: " + link)
 
