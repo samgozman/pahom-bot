@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import os
 import random
@@ -8,6 +9,7 @@ from pahom import settings
 PATH = str(settings.THIS_FOLDER) + "/data/json/dialog-flow/intents"
 # Спарсеный JSON прячется тут
 JSON = dict()
+
 
 def files_list():
     files = list()

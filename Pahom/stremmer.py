@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Стремер для нахождения примерного корня слова
 # Портирован с Java по мотивам http://www.algorithmist.ru/2010/12/porter-stemmer-russian.html
 # Взят отсюда: https://gist.github.com/Kein1945/9111512

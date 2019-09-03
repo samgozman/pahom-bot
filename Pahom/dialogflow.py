@@ -1,16 +1,19 @@
+# -*- coding: utf-8 -*-
+import json
+
+import apiai
+import emoji
+
+from pahom import jsonloads
 from pahom import settings
 from pahom import text_search
-from pahom import jsonloads
-import apiai
-import json
-import emoji
 
 
 def connect():
-    request = apiai.ApiAI(settings.dialogFlow_API_token).text_request() # Токен API к Dialogflow
-    request.version = 2 # версия API
-    request.lang = 'ru' # На каком языке будет послан запрос
-    request.session_id = 'dp10_bot' # ID Сессии диалога (нужно, чтобы потом учить бота)
+    request = apiai.ApiAI(settings.dialogFlow_API_token).text_request()  # Токен API к Dialogflow
+    request.version = 2  # версия API
+    request.lang = 'ru'  # На каком языке будет послан запрос
+    request.session_id = 'dp10_bot'  # ID Сессии диалога (нужно, чтобы потом учить бота)
     return request
 
 
@@ -66,8 +69,7 @@ def emojify(response_name: str):
     return str(emoji.emojize(str(intent_emoji[response_name] + " "), use_aliases=True))
 
 
-def text_answer(user_message, name_user="ANONIM", no_dialogflow=True):
-
+def text_answer(user_message, name_user, no_dialogflow=True):
     # Если no_dialogflow True, тогда пытаемся найти ответ в json или генерим марковку, без обращения в DialogFlow
     if no_dialogflow:
         prepared_message = text_search.prepare_message(user_message)
@@ -75,9 +77,11 @@ def text_answer(user_message, name_user="ANONIM", no_dialogflow=True):
         if prepared_answer is not None:
             # Добавляем к найденному ответу кусочек бредятины
             prepared_answer += ("\n" + text_search.neuros_pahomus(user_message))
-            return str(emojify(str(response_name)) + prepared_answer.replace("ANONIM", name_user, 5))
+            return prepared_answer.replace("ANONIM", name_user, 5)
+            # return str(emojify(str(response_name)) + prepared_answer.replace("ANONIM", name_user, 5))
         else:
-            return str(emojify("pahom.error") + text_search.neuros_pahomus(user_message).replace("ANONIM", name_user, 5))
+            return text_search.neuros_pahomus(user_message).replace("ANONIM", name_user, 5)
+            # return str(emojify("pahom.error") + text_search.neuros_pahomus(user_message).replace("ANONIM", name_user, 5))
     else:
         response_message, response_name = response(user_message)
         # Проверка на пустой ответ

@@ -1,16 +1,15 @@
-#!/usr/bin/env python3.7
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python3.7
 from threading import Thread
 
-from pahom import settings
-from pahom import text_search
-from pahom import telegram_bot
 from pahom import jsonloads
-from pahom import vk_bot
-
+from pahom import settings
+from pahom import telegram_bot
+from pahom import text_search
 
 if __name__ == '__main__':
     # Генерация бредней пахома при старте скрипта (кол-во строк)
-    text_search.generate_model(100000)
+    text_search.generate_model(300000)
 
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()

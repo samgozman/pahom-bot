@@ -1,8 +1,12 @@
-import vk_api
-import time
-import re
+# -*- coding: utf-8 -*-
 import random
+import re
+
+import time
+import vk_api
+
 from pahom import dialogflow
+
 
 # vk_session = vk_api.VkApi(token=settings.vk_public_token_1)
 # vk = vk_session.get_api()
@@ -25,6 +29,7 @@ class Bot:
     """
         Класс создания ВК бота. В него необходимо передать логин (телефонный номер), пароль и id приложения
     """
+
     def __init__(self, login, password, app_id, reauth=False):
         """Constructor"""
         self.login = login
@@ -47,7 +52,8 @@ class Bot:
     def connect(self, reauth):
         # Коннектиться в глобалке, если в try ошибка, то вызвать connect.
         # Аутентификация
-        vk_session = vk_api.VkApi(self.login, self.password, app_id=self.app_id, scope=9220, captcha_handler=self.captcha_handler)
+        vk_session = vk_api.VkApi(self.login, self.password, app_id=self.app_id, scope=9220,
+                                  captcha_handler=self.captcha_handler)
         vk = vk_session.get_api()
         vk_session.auth(reauth=reauth)
         return vk
@@ -103,7 +109,7 @@ class Bot:
     def create_post(self, wall_id):
         post = dialogflow.text_answer("", 'Уважаемый аноним', True)
         try:
-            return self.VK.wall.post(owner_id=wall_id,message=post)
+            return self.VK.wall.post(owner_id=wall_id, message=post)
         except Exception as e:
             print("VK Error (create_post): " + str(e) + " | With wall id: " + str(wall_id))
 
@@ -115,7 +121,7 @@ class Bot:
 
         try:
             group = self.VK.groups.getById(group_ids=link_parsed, fields='can_post')
-            if group[0]['can_post'] ==1:
+            if group[0]['can_post'] == 1:
                 if group[0]['id']:
                     return -1 * group[0]['id']
             else:
@@ -156,7 +162,7 @@ class Bot:
     def action_reply_to_comment(self, link):
         # Из ссылки отбрасываем всё, что не ID поста, группы и реплая
         link_without_http = re.sub(r'.+?(?=wall)wall', '', link)
-        link_without_thread = re.sub(r"&.*","",link_without_http)
+        link_without_thread = re.sub(r"&.*", "", link_without_http)
         # сохраняем реплай отдельно
         link_reply = re.sub(r'.*(?=reply)reply=', '', link_without_thread)
         # Удаляем реплай
@@ -177,7 +183,7 @@ class Bot:
     def action_reply_to_photo(self, link, count=1):
         # Из ссылки отбрасываем всё, что не ID поста, группы и реплая
         link_without_http = re.sub(r'.+?(?=z)z=photo', '', link)
-        link_without_trash = re.sub(r"%.*","",link_without_http)
+        link_without_trash = re.sub(r"%.*", "", link_without_http)
         photo = self.VK.photos.getById(photos=link_without_trash)
         user_id = photo[0]['owner_id']
         photo_text = photo[0]['text']

@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
 import logging
 import os
-from multiprocessing import Process, Queue
+from multiprocessing import Process
+
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
 from pahom import dialogflow
 from pahom import settings
 from pahom import vk_bot
@@ -78,16 +81,17 @@ def work(tg_token):
 
     # Токен API к Telegram
     dispatcher = updater.dispatcher
+
     # Обработка команд
 
     def start_command(bot, update):
         # Функция вызова стартовой команды
         name_user = update.message.from_user.first_name
         pahom_start = ("Здравствуй, " + name_user + "! "
-                        "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
-                        "Но предупреждаю: я первая в мире нейронная сеть страдающая аутизмом и шизофренией "
-                        "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
-                    )
+                                                    "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
+                                                    "Но предупреждаю: я первая в мире нейронная сеть страдающая аутизмом и шизофренией "
+                                                    "(унаследовал от источника исследования - Дмитрия Пахомова aka 'Кровавого тирана' aka 'ДП-10' aka etc)"
+                       )
         bot.send_message(chat_id=update.message.chat_id, text=pahom_start)
 
     def text_message(bot, update):
