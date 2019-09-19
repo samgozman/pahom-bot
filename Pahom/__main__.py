@@ -6,6 +6,7 @@ from pahom import jsonloads
 from pahom import settings
 from pahom import telegram_bot
 from pahom import text_search
+from pahom import rest
 
 if __name__ == '__main__':
     # Генерация бредней пахома при старте скрипта (кол-во строк)
@@ -14,9 +15,9 @@ if __name__ == '__main__':
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()
 
-    # telegram_bot.work(settings.telegram_API_token_1)
-    #
-    # вызываем генерацию ключа api для вк.
+    # start rest api
+    rest.api.run()
+
     t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_1,))
     t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
 
