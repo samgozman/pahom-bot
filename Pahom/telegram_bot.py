@@ -3,7 +3,8 @@ import logging
 import os
 from multiprocessing import Process
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import Bot, Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 from pahom import response
 from pahom import settings
@@ -13,26 +14,18 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
-def check_admin_privileges(bot, update):
-    name_user = update.message.from_user.username
-    # Проверяем есть ли юзер в админском составе. Если да, то выдать меню. Нет - выдать марковку))
-    if name_user in settings.admin:
-        return True
-    else:
-        return False
-
-
 def work(tg_token):
     # Подключаемся к ТГ
-    updater = Updater(token=tg_token)
+    updater = Updater(tg_token, use_context=True)
 
     # Токен API к Telegram
     dispatcher = updater.dispatcher
 
     # Обработка команд
 
-    def start_command(bot, update):
+    def start_command(update: Update, context: CallbackContext):
         # Функция вызова стартовой команды
+        bot = context.bot
         name_user = update.message.from_user.first_name
         pahom_start = ("Здравствуй, " + name_user + "! "
                                                     "Я слабоумная, патриотическая, радиоактивная нейронная сеть Пахом ДП-10.  Со мной можно пообщаться на разные темы - от Путина до My little Pony. "
@@ -41,15 +34,14 @@ def work(tg_token):
                        )
         bot.send_message(chat_id=update.message.chat_id, text=pahom_start)
 
-    def text_message(bot, update):
+    def text_message(update: Update, context: CallbackContext):
         # Функция считывания сообщеня и отправки ответа
+        bot = context.bot
         name_user = update.message.from_user.first_name
         user_message = str(update.message.text)
         bot.send_message(chat_id=update.message.chat_id, text=response.text_answer(user_message, name_user))
 
     def error(update, context):
-        # Обработчик ошибок
-        """Log Errors caused by Updates."""
         logger.warning('Update "%s" caused error "%s"', update, context.error)
 
     # Хендлеры
