@@ -15,16 +15,14 @@ if __name__ == '__main__':
     # Выгуражаем все JSON файлы в память для быстрой работы
     jsonloads.parse_json()
 
-    # start rest api
-    rest.api.run()
-
     t1 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_1,))
-    t2 = Thread(target=telegram_bot.work, args=(settings.telegram_API_token_2,))
+    t2 = Thread(target=rest.api.run, args=('0.0.0.0',))
+
+    t2.daemon = True
 
     t1.start()
     t2.start()
-    # t3.start()
 
     t1.join()
     t2.join()
-    # t3.join()
+
