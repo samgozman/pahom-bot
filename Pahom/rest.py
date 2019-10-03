@@ -1,22 +1,44 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, json, request
+from flask import Flask, json, request, make_response
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from pahom import response
 
 
 api = Flask(__name__)
 api.config['JSON_AS_ASCII'] = False
 
+limiter = Limiter(
+    api,
+    key_func=get_remote_address,
+    default_limits=["1500 per day", "600 per hour"]
+)
+
 
 @api.route('/')
+@limiter.limit("15/minute")
 def index():
-    return "Привет, Пахом!"
+    resp = make_response("Привет, Пахом!")
+    # Secure headers
+    resp.headers['Content-Security-Policy'] = "default-src 'self'"
+    resp.headers['X-Content-Type-Options'] = 'nosniff'
+    resp.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    resp.headers['X-XSS-Protection'] = '1; mode=block'
+    return resp
 
 
 @api.route('/question', methods=['POST'])
+@limiter.limit("10/minute")
 def post_question():
     if request.headers['Content-Type'] == 'application/json':
         message = json.loads(json.dumps(request.json))
         if 'author' in message and 'message' in message:
-            return response.text_answer(message['message'], message['author']), 201
+            resp = make_response(response.text_answer(message['message'], message['author']))
+            # Secure headers
+            resp.headers['Content-Security-Policy'] = "default-src 'self'"
+            resp.headers['X-Content-Type-Options'] = 'nosniff'
+            resp.headers['X-Frame-Options'] = 'SAMEORIGIN'
+            resp.headers['X-XSS-Protection'] = '1; mode=block'
+            return resp, 201
     else:
         return "Fuck you!", 415

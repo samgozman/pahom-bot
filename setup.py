@@ -2,14 +2,15 @@ from setuptools import setup
 
 setup(
     name='pahom',
-    version='0.3.1',
+    version='0.3.6',
     packages=['pahom'],
     install_requires=[
         'python-telegram-bot',
         'apiai',
         'markovify',
         'tqdm',
-        'flask'
+        'flask',
+        'flask_limiter'
     ],
     include_package_data=True,
     zip_safe=False
