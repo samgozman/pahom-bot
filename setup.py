@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pahom',
-    version='0.3.6',
+    version='0.3.7',
     packages=['pahom'],
     install_requires=[
         'python-telegram-bot',
