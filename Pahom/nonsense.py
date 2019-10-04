@@ -28,7 +28,8 @@ def generate_model(count):
     # tqdm - для вывода в консоль процесса генерации
     for i in tqdm.tqdm(range(count)):
         sentence = text_model.make_sentence()
-        FILE_ARRAY.append(sentence)
+        if sentence is not None:
+            FILE_ARRAY.append(sentence)
     # Удаляем дубликаты строк. В словаре не может быть одинаковых ключей :)
     FILE_ARRAY = list(OrderedDict.fromkeys(FILE_ARRAY))
     print(str(len(FILE_ARRAY)) + " generated")
