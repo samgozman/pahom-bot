@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 from pahom import jsonloads
 from pahom import nonsense
+import logging
+
+# Вывод лога ошибок
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def text_answer(user_message, name_user):
+    logger.info("Get TEXT: %s FROM %s" % (user_message, name_user))
     prepared_message = nonsense.prepare_message(user_message)
     prepared_answer, response_name = jsonloads.text_answer(prepared_message)
     if prepared_answer is not None:

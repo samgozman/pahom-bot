@@ -4,15 +4,22 @@ import re
 from collections import OrderedDict
 
 import markovify
-import tqdm
+import logging
 
 from pahom import settings
 from pahom import stremmer
+
+
+# Вывод лога ошибок
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 FILE_ARRAY = []
 
 
 def generate_model(count):
+    logger.info("Generating")
     # Генерация бредней пахома
 
     # Открываем исходный текст
@@ -25,8 +32,7 @@ def generate_model(count):
 
     # Записываем наши познания в виде предложений
     global FILE_ARRAY
-    # tqdm - для вывода в консоль процесса генерации
-    for i in tqdm.tqdm(range(count)):
+    for i in range(count):
         sentence = text_model.make_sentence()
         if sentence is not None:
             FILE_ARRAY.append(sentence)
@@ -36,6 +42,7 @@ def generate_model(count):
     text_file = open(settings.markov_file, "w")
     text_file.write('\n'.join(map(str, FILE_ARRAY)))
     text_file.close()
+    logger.info("Generating done")
 
 
 def replace_extra_words(message: str):
@@ -115,11 +122,13 @@ def find_answers(message_array: list):
 
 
 def prepare_message(message: str):
+    logger.info("START prepare_message")
     message = replace_signs(replace_extra_words(message))
     # проходимся стреммером чтобы получить слово без окончаний
     ms_list = list()
     for word in list(message.split()):
         ms_list.append(stremmer.Porter.stem(word))
+    logger.info("DONE prepare_message")
     return ms_list
 
 
@@ -167,10 +176,12 @@ def find_dependencies(answers_dict: dict, answers_list: list):
 
 
 def neuros_pahomus(text_ms: str):
+    logger.info("START neuros_pahomus CHAIN")
     # запускает всю цепочку пахома
     message = prepare_message(text_ms)
     test_dict = find_answers(message)
     answer = ''.join(find_dependencies(test_dict[0], test_dict[1]))
+    logger.info("DONE neuros_pahomus CHAIN")
     return answer
 #
 # start_time = time.time()

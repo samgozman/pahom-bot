@@ -2,6 +2,11 @@
 import json
 import os
 import random
+import logging
+
+# Вывод лога ошибок
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 from pahom import settings
 
@@ -44,6 +49,7 @@ def parse_json():
 
 
 def find_intent(message=[]):
+    logger.info("START find_intent")
     message.sort()
     matches_dict = dict()
     # Ищем вхождения слов сообщения в вопросы
@@ -59,6 +65,7 @@ def find_intent(message=[]):
     # Сортируем словарь по количеству элементов ключа и выводим название ключа (первого самого большого)
     key = sorted(matches_dict, key=lambda k: len(matches_dict[k]), reverse=True)[0]
     # Если пустой результат
+    logger.info("DONE find_intent")
     if len(matches_dict[key]) < 1:
         key = None
     return key

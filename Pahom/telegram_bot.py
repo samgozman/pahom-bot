@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
-import os
-from multiprocessing import Process
 
-from telegram import Bot, Update
+from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 from pahom import response
-from pahom import settings
 
 # Вывод лога ошибок
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
