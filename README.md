@@ -3,7 +3,11 @@
 [![Ага, ага](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)](https://yopta.space) 
 [![МАНИ](https://img.shields.io/badge/price-%240-brightgreen)](https://yopta.space) 
 
-[Бот](https://teleg.run/dp10_bot) Пахом это совершенно новое слово в Digital среде мира Data Since! Бот представляет из себя самый совершенный Artificial Intelligence в мире состоящий из огромных массивов Big Data, собранных с помощью кропотливой работы Computer Vision и Machine Learning, построенных на базе нашей собственной Neural Network. 
+[Бот онлайн](https://пахом.рф)
+
+[Телеграм бот](https://teleg.run/dp10_bot) 
+
+Бот Пахом это совершенно новое слово в Digital среде мира Data Since! Бот представляет из себя самый совершенный Artificial Intelligence в мире состоящий из огромных массивов Big Data, собранных с помощью кропотливой работы Computer Vision и Machine Learning, построенных на базе нашей собственной Neural Network. 
 
 Благодаря современным подходам в Iterative Deepening Depth-First Search (IDDFS) обеспечена максимальная Big Data Veracity наших данных. 
 
